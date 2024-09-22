@@ -1,3 +1,5 @@
+# Code partially taken from Dennis Ivy (see ReadMe for more details)
+
 from django.urls import path
 from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, CustomLoginView, RegisterPage
 from django.contrib.auth.views import LogoutView

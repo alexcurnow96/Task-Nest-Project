@@ -1,3 +1,5 @@
+# Code taken from Dennis Ivy (see ReadMe for details)
+
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
