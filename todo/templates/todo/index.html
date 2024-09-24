@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}Home Page{% endblock %}
-
 
 {% block content %}
 <div>
@@ -14,7 +12,7 @@
         of the team, we want to make your planning simple.
     </p>
 
-    <button>Get started now</button>
+    <button><a href="{% url 'tasks' %}">Get started now</a></button>
 
 </div>
 
@@ -65,7 +63,7 @@
 
 <div>
 
-    <button>Sign Up Now</button>
+    <button><a href="{% url 'register' %}">Sign Up Now</a></button>
 
 </div>
 {% endblock %}
