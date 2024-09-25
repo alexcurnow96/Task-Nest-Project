@@ -1,6 +1,6 @@
 # Code taken from Dennis Ivy (see ReadMe for details)
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
@@ -10,10 +10,62 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
-from .models import Task
+from .models import Task, Project
+from .forms import ProjectForm, TaskForm
 
-# Create your views here.
+
+#-----------------------PROJECTS-------------------------#
+@login_required
+def Project_List(request):
+    projects = Project.objects.filter(user=request.user)
+    return render(request, 'project_list.html', {'projects': projects})
+
+@login_required
+def project_detail(request, project_id):
+    project = get_object_or_404(Project, id=project_id, user=request.user)
+    tasks= project.tasks.all()
+    return render(request, 'project_detail.html', {'project': project, 'tasks': tasks})
+
+@login_required
+def create_project(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = request.user
+            project.save()
+            return redirect('project_list')
+    else:
+        form = ProjectForm()
+    return render(request, 'project_form.html', {'form': form})
+
+@login_required
+def edit_project(request, project_id):
+    project = get_object_or_404(Project, id=project_id, user=request.user)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('project_detail', project_id= project.id)
+    else:
+        form= ProjectForm(instance=project)
+    return render(request, 'project_form.html', {'form': form, 'project': project})
+
+@login_required
+def delete_project(request, project_id):
+    project = get_object_or_404(Project, id=project_id, user=request.user)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('project_list')
+    return render(request, 'confirm_delete.html', {'object': project})
+
+
+
+
+
+#-----------------------USERS------------------------#
 class CustomLoginView(LoginView):
     template_name = 'todo/login.html'
     fields = '__all__'
@@ -41,6 +93,8 @@ class RegisterPage(FormView):
 
 
 
+
+#-----------------------TASKS-------------------------#
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
