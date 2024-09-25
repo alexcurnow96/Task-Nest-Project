@@ -1,131 +1,165 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Planning
 
-Welcome Alex Curnow,
+## User Interface Design (UI)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+### Inspiration
+I started by using a mindmap to establish an idea. I knew I wanted to create a site based on project management as I would like to get into that field after this course. I have also recieved feedback on my previous projects to indicate that my planning and project management skills were my best aspect.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+My overall thinking was to create a simple to use, easy to look at site to help those wanting to organise their projects. This would feature:
 
-## Gitpod Reminders
+- user creation and profiles to have individual lists and team boards
+- kanban board to visualise tasks and enhance workflow
+- ability to collaborate to optimise teamwork
+- todo list to organise tasks further
+- ability to prioritise tasks for an individual
+- site to enhance productivity
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+I then created an MVP from these ideas which included a simple to-do list with user registration and log in. This would fulfill the CRUD functionality needed for the project. 
 
-`python3 -m http.server`
+I then began looking into competitors sites/apps to see what as already on the market and what appeared to be popular. 
 
-A blue button should appear to click: _Make Public_,
+![Project Ideas](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/ideas-for-project.png)
 
-Another blue button should appear to click: _Open Browser_.
+These included:
+- [A simple to do list for you and your team (any.do)](https://www.any.do/)
+- [Todoist | A To-Do List to Organize Your Work & Life](https://todoist.com/)
+- [Manage Your Team’s Projects From Anywhere | Trello](https://trello.com/)
+- [KanbanFlow - Lean project management. Simplified.](https://kanbanflow.com/)
+- [Kanban Tool - Kanban Boards for Business | Kanban Software](https://kanbantool.com/)
+- [Home (taskworld.com)](https://taskworld.com/)
+- [MeisterTask | Work Management Software | Task Management](https://www.meistertask.com/)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+I chose these sites as inspiration for my board because I liked their simplicity. It also seemed as though I could ____ achieve my goals and create my own project site.
 
-A blue button should appear to click: _Make Public_,
+### Wireframes
 
-Another blue button should appear to click: _Open Browser_.
+I began my wireframing journey by sketching with pen and paper. This was a very simple and early idea, made using a template. 
+![sketched wireframe](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+I then began wireframing using my Miro board, using shapes and lines. These were able to give me a better idea of what I wanted the site to look like. In this iteration I included both desktop and mobile versions of each page, including all pages I could possibly make for this project. 
+![wireframe board on Miro](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/wireframes.png)
 
-To log into the Heroku toolbelt CLI:
+I then tried using Figma.com to create more complex wireframes/prototypes. I made one prototype, but could not get on with this tool. 
+![Figma prototype](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/prototype.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+My finished wireframes were made using the Balsamiq application and featured every page I wanted to create in desktop and mobile view. This became my best planning tool when it came to development as I knew exactly what I wanted to create.
+![Desktop Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-homepage.png)
+![Phone Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Homepage.png)
+![Desktop Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-Project-Page.png)
+![Phone Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Projects-page.png)
+![Desktop Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-kanban-board.png)
+![Phone Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Kanban-board.png)
+![Profile wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/profile-page.png)
+![Sign in/up wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Sign-in_Sign-up.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
 
-### Connecting your Mongo database
+### Brand Identity
+A big part of User Interface Design is the brand identity. This is how users recognise the site and build trust. I established this identity by first creating a brand name. I used the generative powers of AI by asking Perplexity.com to create names for a task management website. The responses from Perplexity were varied and most included alliterative names. Both of my previous projects with CI have featured alliterative names so I wanted to steer clear of that this time. The name Task Nest was featured and this became the name I started referring to my project as. 
+![Design Miro Board](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/design-ideas.png)
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+The brand colours are also a big part of the brand identity of Task Nest. My market research had led to me being pulled to a monochrome colour scheme. The different shades of one colour being used throughout the site made it look more professional for the use of development teams and individuals. 
 
-------
+Upon looking into brand colours, I found that blue is a "harmonious colour that is stress relieving and does not disturb the focus of the brain, resulting in more efficient work being delivered." (https://www.haiken.com/insights/the-top-colours-for-your-office-to-increase-productivity) For this reason I chose an all blue colour scheme. 
+"[Colour Scheme](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/colour-scheme.jpeg)
 
-## Release History
+I then used Adobe Firefly to create a logo for the website that would feature on the nav bar. This would provide an added layer of trust to the site and become a recognisable part of the brand. I used the checkpoints from the to-do list inside of a birds nest to make it clear that this logo belongs to the brand. 
+![Logo](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/logo.jpg)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The typography came at the end of the design process as I wanted it to follow the professionalism of the rest of the branding design. I started by looking at www.fontpair.co, and choosing a series of font pairings that I thought could work for Task Nest. When looking at the final choices, I noticed that they all featured "Karla" as a heading font. This became the natural heading font, and the pairing of "Inconsolata" went well for the paragraph elements. These fonts were then procured from Google Fonts (fonts.google.com).
+![Font Pairing](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
 
-**June 18, 2024,** Add Mongo back into template
+### Interaction Design 
+The interactivity of a website is also incredibly important. This includes the basic interaction, use of buttons, drag and drop, user creation, but also more complex interactions within a site. For this reason, I researched the 10 Usability Heuristics and how to assess where a design is falling short and where it is excelling. This also looks into what aspects of design can be sacrificed and what needs to be prioritised. 
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+The most important heuristics for my project are user control and freedom, consistency and standards, and recognition rather than recall. These are all prioritising the users ability to move throughout the site with clearly marked actions. The CRUD functionality should be clearly marked and, if a user makes a mistake by clicking on an action when they do not want to, there should be clear signposts to return. This should be the same on every page throughout the site. 
 
-**May 28 2024:** Fix Mongo and Links installs
 
-**April 26 2024:** Update node version to 16
+### Accessibility
+Throughout this course, the accessibility of users has been highlighted. For this reason, I wanted to plan for accessibility issues before I had begun coding my site. This would make sure my site was useable by everyone who had need to use it. This was a relatively easy portion of the design as I didn't want to complicate accessibility. This should be at the forefront of my design and should not be thought of as extra complications to the design. 
 
-**September 20 2023:** Update Python version to 3.9.17.
+The accessibility designs I made were to use large buttons and large font throughout the site, to implement a light/dark toggle mode for those who wish to use the site on either setting, and an overall simple app functionality with an easy to follow user flow for all users. 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+These would all be planned for and tested at the end of my project to ensure the site is functional for all users. 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## User Experience (UX)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Database Planning
+I began my database design by sketching out my models and an entity relationship diagram. Because of my previous experience in SQL, I began by following the principles of MySQL and used integer, varchar, and set. This helped me understand what I was going to create in the backend of this site. 
+![Sketched ERD](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/ideas-for-project.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+I then began using LucidChart (www.lucidchart.com) to create an actual ERD to be used in my project. This included Users, Tasks and Subtasks with primary keys and foreign keys. This allowed me to create simple models with simple connections. 
+![Lucidchart diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+I then discovered that you could import the user model from Django AllAuth, and decided to use that functionality for the Users model.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### The Purpose and Target Audience
+My target audience are individuals within teams in a project. There is also a secondary audience of just individuals who want to achieve tasks generally. 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+The purpose of this website is related to project management. I wanted to create something that would enable productivity and streamline working practices. I am also aware that this site can be used by anyone who would like to log their tasks and be more productive though. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### User Journeys
+All users journey through a website, and I needed to keep in mind the path users would take on mine. I wanted to keep the site as simple as possible for the user to navigate. This reduced the amount of pages I had, and reduced the amount of decisions for the user to make. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+The CRUD functionality was the main focus of the site. This included the ability to create tasks, read the tasks, update the tasks, and delete the tasks when completed. 
+![User Flow Diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/users-model.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### User stories
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+| User Story | MoSCoW Prioritisation |
+| :------------ | :--------------: |
+| As a user I want to sign up for an account so that I can access the project management features. | Must Have |
+|As a user I want to log in to my account so that I can view and manage my projects. | Must Have|
+|As a user I want to log our of my account to ensure my information remains secure. | Must Have |
+|As a team member I want to create a new project so that I can start organising tasks and collaborating with others. | Must Have |
+|As a project manager I want to add team members to a project so that they can contribute and view project details. | Could Have |
+|As a team member I want to create tasks on a Kanban board so that I can visualise and manage the workflow. | Won't Have |
+|As a user I want to drag and drop tasks between columns on the Kanban board so that I can update their status easily. | Won't Have |
+|As a team member I want to create and manage to-do lists within a project so that I can track smaller action items. | Must Have |
+|As a team member I want to upload PDF files to a project so that I can share important documents within the team. | Should Have |
+|As a user I want to comment on tasks so that I can collaborate and communicate with team members. | Must Have |
+|As a user I want to share links within a project so that team members can access relevant external resources. | Should Have |
+|As a project mananager I want to assign roles and permissions to team members so that I can manage access levels within the project. | Won't Have |
+|As a user I want to toggle between light and dark modes so that I can adjust the interface to my preference. | Should Have |
+|As a team member I want to recieve notifications for project updates so that I can stay informed of changes and new assignments. | Must Have |
+|As a user I want a logo so that I can recognise the site and build trust. | Must Have |
+|As a user I want a vertical navbar that is visible on every page. | Must Have |
+|As a user I want clear links on the nav bar so I can go to any page. | Must Have |
+|As a user I want a log in page that is easy to use so that I can log in every time. | Must Have |
+|As a user I want a sign up page so that I can sign up for the service easily. | Must Have |
+|As a team leader I want roles on the sign up page so that my colleagues can sign up with their permissions. | Should Have |
+|As a user I want my username to be visible on the nav bar to promote familiarity. | Must Have |
+|As a user I want to create a project from the projects page so that I can create multiple projects. | Could Have |
+|As a user I want to be able to name a project and give a brief description. |Could Have |
+|As a user I want an add task button so that I can add tasks to my project easily. | Must Have|
+|As a user I want an edit task button so that I can edit tasks in my project. | Must Have |
+|As a user I want a delete task button so that I can delete tasks in my project. | Must Have |
+|As a user I want a backlog column so that I can see all the tasks that need to be done in the future. | Won't Have|
+|As a user I want a to-do column so that I can see what tasks need to be done. | Won't Have |
+|As a user I want an in progress column so that I can see what task I am currently doing. | Won't Have |
+|As a user I want a done column so that I can see what task I have done. | Won't Have |
+|As a developer I want to use fonticons for each column for user experience. | Must Have |
+|As an admin I want to see how many users I have and what projects they have so that I can organise my team. | Won't Have |
+|As a team leader I want to see what my colleagues are working on within their projects so that I can organise my team. | Won't Have|
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/userstories1.png)
+![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/userstories2.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+### Agile
+I took an agile approach to this project, focusing on the user and iterating my work to better create my project. 
 
-## FAQ about the uptime script
+I started my agile approach by creating my user stories, justifying all choices from the perspective of users and developers. I tried to create users stories from a range of perspectives, not limited to just end users but also developers, team leaders and project managers. Although this proved to be ambitious given the time frame and my own abilities, I felt these perspectives gave me confidence to complete my project. 
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+I used a github projects kanban board to organise my user stories. I used it as a visual guide to my progress throught the project, moving tasks from one column to another based on where I was in my sprints. There were four columns on my board: 
+1. Backlog: This section housed all of the user stories at the beginning of the project. It was then used for the tasks that would not be completed in this iteration, due to time constraints or my own ability with the technologies. Therefore, the backlog almost became a future features section too.
+2. Todo: This column was used for items that hadn't been started but needed to be worked on in one of my upcoming sprints. This section served to help when planning my tasks per day.
+3. In Progress: This section was for items currently being worked on. I could keep on task when stories were placed into this column, and had a visual guide as to how far along in my sprint I was. If a task was not completed in a given sprint, it was placed back into the todo column for the next day. 
+4. Done: This column was for all completed tasks. Tasks only made it to the done column once they had been fully completed. This was a great motivator to see what stories I had already completed.
 
-**How will this affect me?**
+Each user story had a MoSCoW prioritisation label attached to it. These labels were added in the middle of the project as I felt this helped me understand where I was within the project better. At the beginning I was hopeful (and naive) enough to think that I could fulfill all user stories. But during the project I realised that my MVP was the most important aspect of the project and so used the prioritisation labels to reflect that. This helped me in my planning towards the second half of the project because I focused on only the must have features.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+My MVP became a very simple task app rather than a full project management app. I felt that the Kanban board and team organisation aspects were better suited to a future iteration of my project. The site would fulfill the criteria for the project, and work well for users as just a simple to-do list task app. 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+The biggest aspect of Agile I used in this project was my sprints. I took each day as a seperate sprint to achieve an aspect of my plan. This was only possible because of the daily scrum meetings led by my facilitator, Amy. The scheduled meetings at 9am and 4pm helped keep my sprints contained and the ability to talk about that days work kept me focused. I seldom ran into problems because of our daily meetings and this also helped boost my confidence going into the next days sprints. 
