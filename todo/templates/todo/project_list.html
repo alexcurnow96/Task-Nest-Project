@@ -10,7 +10,7 @@
 <hr>
 <h1>My Projects</h1>
 
-<a href="{% url 'create_project' %}">Add project</a>
+<a href="{% url 'project_create' %}">Add project</a>
 
 <form method="GET">
     <input type="text" name="search-area" value="{{search_input}}">
@@ -25,9 +25,9 @@
     {% for project in projects %}
     <tr>
         <td>{{project.title}}</td>
-        <td><a href="{% url 'project' project.id %}">View</a></td>
-        <td><a href="{% url 'update_project' project.id %}">Edit</a></td>
-        <td><a href="{% url 'delete_project' project.id %}">Delete</a></td>
+        <td><a href="{% url 'project_detail' project.id %}">View</a></td>
+        <td><a href="{% url 'project_update' project.id %}">Edit</a></td>
+        <td><a href="{% url 'project_delete' project.id %}">Delete</a></td>
     </tr>
     {% empty %}
         <h3>No items in list</h3>

@@ -32,7 +32,7 @@ class ProjectDetail(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tasks'] = self.object.tasks.all()
+        context['task_list'] = self.object.tasks.all()
         return context
 
     def get_queryset(self):
@@ -81,13 +81,13 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('tasks')
+        return reverse_lazy('task_list')
 
 class RegisterPage(FormView):
     template_name = 'todo/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('task_list')
 
     def form_valid(self, form):
         user = form.save()
@@ -97,7 +97,7 @@ class RegisterPage(FormView):
 
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('tasks')
+            return redirect('task_list')
         return super().get(self.request, *args, **kwargs)
 
 

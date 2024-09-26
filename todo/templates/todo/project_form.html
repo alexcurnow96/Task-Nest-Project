@@ -1,7 +1,7 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 
 <h3> project Form</h3>
-<a href="{% url 'tasks' %}">Go back</a>
+<a href="{% url 'task_list' %}">Go back</a>
 <form method="POST" action="">
     {% csrf_token %}
     {{form.as_p}}

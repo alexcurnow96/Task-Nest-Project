@@ -10,7 +10,7 @@
 <hr>
 <h1>My To Do List</h1>
 
-<a href="{% url 'task-create' project_id=project.id %}">Add Task</a>
+<a href="{% url 'task_create' project_id=project.id %}">Add Task</a>
 
 <form method="GET">
     <input type="text" name="search-area" value="{{search_input}}">
@@ -25,9 +25,9 @@
     {% for task in tasks %}
     <tr>
         <td>{{task.title}}</td>
-        <td><a href="{% url 'task' task.id pk=task.id %}">View</a></td>
-        <td><a href="{% url 'task-update' pk=task.id %}">Edit</a></td>
-        <td><a href="{% url 'task-delete' pk=task.id %}">Delete</a></td>
+        <td><a href="{% url 'task_detail' %}">View</a></td>
+        <td><a href="{% url 'task_update' %}">Edit</a></td>
+        <td><a href="{% url 'task_delete' %}">Delete</a></td>
     </tr>
     {% empty %}
         <h3>No items in list</h3>
