@@ -13,7 +13,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('tasks', TaskList.as_view(), name='tasks'),
     path('task/<int:pk>/', TaskDetail.as_view(), name='task'),
-    path('create-task/<int:project_id>/task/new', TaskCreate.as_view(), name='task-create'),
+    path('create-task/<int:project_id>/task/', TaskCreate.as_view(), name='task-create'),
+    path('create-task/', TaskCreate.as_view(), name='task-create-no-project'),
     path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update'),
     path('task-delete/<int:pk>/', TaskDelete.as_view(), name='task-delete'),
 

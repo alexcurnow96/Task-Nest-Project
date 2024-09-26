@@ -18,7 +18,7 @@ from .forms import ProjectForm, TaskForm
 
 #-----------------------PROJECTS-------------------------#
 @login_required
-def Project_List(request):
+def project_list(request):
     projects = Project.objects.filter(user=request.user)
     return render(request, 'project_list.html', {'projects': projects})
 
@@ -121,21 +121,79 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title', 'description', 'complete']
-    success_url = reverse_lazy('tasks')
+    template_name = 'task_form.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.project = get_object_or_404(Project, id=self.kwargs['project_id'], user=request.user)
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(TaskCreate, self).form_valid(form)
+        form.instance.project = self.project
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project'] = self.project
+        return context
+
+    def get_success_url(self):
+        return redirect('task-create', project_id=some_project.id)
+
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
     fields = ['title', 'description', 'complete']
-    success_url = reverse_lazy('tasks')
+    template_name = 'task_form.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.project = self.object.project
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        task_id = self.kwargs.get('pk')
+        return get_object_or_404(Task, id=task_id, user=self.request.user)
+
+    def test_func(self):
+        task = self.get_object()
+        return self.request.user == task.User
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.project = self.project
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project'] = self.project
+        return contextde
+
+    def get_success_url(self):
+        return reverse_lazy('project_detail', kwargs={'project_id': self.project.id})
+
 
 class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
-    success_url = reverse_lazy('tasks')
+    template_name = 'task_confirm_delete.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.project = self.object.project 
+        return super().dispatch(request, *args, **kwargs)
+
+    def test_func(self):
+        task = self.get_object()
+        return self.request.user == task.User
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project'] = self.project
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('project_detail', kwargs={'project_id': self.project.id})
 
 
 def index(request):
