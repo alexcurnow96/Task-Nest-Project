@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
-from todo.models import Task
 
 # Create your models here.
 class Project(models.Model):
