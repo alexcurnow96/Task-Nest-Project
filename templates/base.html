@@ -12,18 +12,24 @@
 
 <body>
 
-    <nav>
-        <link>
-        <img>
-        <h2><a href="">sign in/sign up</a></h2>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>TaskNest</h2>
+            <ul>
+                <li><a href=""><i></i>Sign in/Sign up</a></li>
+                <li><a href=""><i></i>My Projects</a></li>
+                <li><a href=""><i></i>My Kanban</a></li>
+            </ul>
+            <div class="social_media">
+                <a href=""><i></i></a>
+                <a href=""><i></i></a>
+                <a href=""><i></i></a>
+            </div>
+        </div>
+    </div>
+    
 
-        <a href="">My projects</a>
-
-        <a>My kanban</a>
-        <p>New feature!</p>
-    </nav>
-
-    <main>
+    <main class="main_content">
         {% block content%}
         {% endblock%}
     </main>

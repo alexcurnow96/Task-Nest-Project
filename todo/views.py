@@ -17,49 +17,58 @@ from .forms import ProjectForm, TaskForm
 
 
 #-----------------------PROJECTS-------------------------#
-@login_required
-def project_list(request):
-    projects = Project.objects.filter(user=request.user)
-    return render(request, 'project_list.html', {'projects': projects})
+class ProjectList(LoginRequiredMixin, ListView):
+    model = Project
+    template_name = "project_list.html"
+    context_object_name = 'project_list'
 
-@login_required
-def project_detail(request, project_id):
-    project = get_object_or_404(Project, id=project_id, user=request.user)
-    tasks= project.tasks.all()
-    return render(request, 'project_detail.html', {'project': project, 'tasks': tasks})
+    def get_queryset(self):
+        return Project.objects.filter(user=self.request.user)
 
-@login_required
-def create_project(request):
-    if request.method == 'POST':
-        form = ProjectForm(request.POST)
-        if form.is_valid():
-            project = form.save(commit=False)
-            project.user = request.user
-            project.save()
-            return redirect('project_list')
-    else:
-        form = ProjectForm()
-    return render(request, 'project_form.html', {'form': form})
+class ProjectDetail(LoginRequiredMixin, DetailView):
+    model = Project
+    template_name = 'project_detail.html'
+    context_object_name = 'project_detail'
 
-@login_required
-def edit_project(request, project_id):
-    project = get_object_or_404(Project, id=project_id, user=request.user)
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=project)
-        if form.is_valid():
-            form.save()
-            return redirect('project_detail', project_id= project.id)
-    else:
-        form= ProjectForm(instance=project)
-    return render(request, 'project_form.html', {'form': form, 'project': project})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = self.object.tasks.all()
+        return context
 
-@login_required
-def delete_project(request, project_id):
-    project = get_object_or_404(Project, id=project_id, user=request.user)
-    if request.method == 'POST':
-        project.delete()
-        return redirect('project_list')
-    return render(request, 'confirm_delete.html', {'object': project})
+    def get_queryset(self):
+        return Project.objects.filter(user=self.request.user)
+
+class ProjectCreate(LoginRequiredMixin, CreateView):
+    model = Project 
+    form_class = ProjectForm 
+    template_name = 'project_form.html'
+    success_url = reverse_lazy('project_list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
+    model = Project 
+    form_class = ProjectForm 
+    template_name = 'project_form.html'
+    success_url = reverse_lazy('project_list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_queryset(self):
+        return Project.objects.filter(user=self.request.user)
+
+class ProjectDelete(LoginRequiredMixin, DeleteView):
+    model = Project 
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('project_list')
+
+    def get_queryset(self):
+        return Project.objects.filter(user=self.request.user)
+
 
 
 
@@ -167,7 +176,7 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['project'] = self.project
-        return contextde
+        return context
 
     def get_success_url(self):
         return reverse_lazy('project_detail', kwargs={'project_id': self.project.id})
