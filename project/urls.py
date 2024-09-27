@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import task_list, task_create, task_delete, task_detail, task_update
+from .views import project_list, project_create, project_delete, project_detail, project_update
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
