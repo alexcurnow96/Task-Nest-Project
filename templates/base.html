@@ -38,7 +38,7 @@
                 <li><a {% if request.path == login_url %}active{% endif %} aria-current="page"
                         href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
-                <li><a href=""><i></i>My Projects</a></li>
+                <li><a href="{% url 'project_list' %}"><i></i>My Projects</a></li>
                 <li><a href="#"><i></i>My Kanban</a></li>
             </ul>
 
