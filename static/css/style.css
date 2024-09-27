@@ -64,3 +64,9 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+.main_content {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

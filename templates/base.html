@@ -1,13 +1,19 @@
 {% load static %}
 
+{% url 'home' as home_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3a3dab9761.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>{% block title %}TaskNest{% endblock %}</title>
+    <title>TaskNest</title>
 </head>
 
 <body>
@@ -15,21 +21,38 @@
     <div class="wrapper">
         <div class="sidebar">
             <h2>TaskNest</h2>
+            <img src="static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." width="150"
+                height="150">
+            {% if request.user.is_authenticated %}
+            <h4>{{request.user}}</h4>
+            {% else %}
+            <h4></h4>
+            {% endif %}
             <ul>
-                <li><a href=""><i></i>Sign in/Sign up</a></li>
+                {% if user.is_authenticated %}
+                <li><a {% if request.path == logout_url %}active{% endif %} aria-current="page"
+                        href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                <li><a {% if request.path == signup_url %}active{% endif %} aria-current="page"
+                        href="{% url 'account_signup' %}">Sign Up</a></li>
+                <li><a {% if request.path == login_url %}active{% endif %} aria-current="page"
+                        href="{% url 'account_login' %}">Login</a></li>
+                {% endif %}
                 <li><a href=""><i></i>My Projects</a></li>
                 <li><a href="#"><i></i>My Kanban</a></li>
             </ul>
+
+
             <div class="social_media">
-                <a href=""><i></i></a>
-                <a href=""><i></i></a>
-                <a href=""><i></i></a>
+                <a href="www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-square-x-twitter"></i></a>
             </div>
         </div>
     </div>
-    
 
-    <main class="main_content">
+
+    <main>
         {% block content%}
         {% endblock%}
     </main>
