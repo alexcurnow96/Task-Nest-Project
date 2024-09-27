@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from todo import views
-from project import views
 
 
 urlpatterns = [
@@ -25,6 +24,5 @@ urlpatterns = [
     path('', include('todo.urls')),
     path('accounts/', include('allauth.urls')),
 
-    path('project/', include('project.urls')),
     path('todo/', include('todo.urls')),
 ]

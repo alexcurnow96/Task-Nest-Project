@@ -3,8 +3,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse 
-from .models import Task, Project
+from .models import Task
 from django.db.models import Q
+from .forms import TaskForm
 
 
 
@@ -22,50 +23,52 @@ def task_list(request):
 
 @login_required
 def task_detail(request, pk):
-    task = get_object_or_404(Task, pk=pk, user=request.user)
+    task = get_object_or_404(Task, user=request.user)
     return render(request, 'todo/task.html', {'task': task})
 
-def task_create(request, project_id):
-    project = get_object_or_404(Project, id=project.id, user=request.user)
+def task_create(request):
 
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.user = request.user
-            task.project = project
             task.save()
-            return redirect('task-create', project_id=project.id)
+            return redirect('task_list')
     else:
         form = TaskForm()
 
-    return render(request, 'task-form.html', {'form': form, 'project': project})
+    return render(request, 'todo/task-form.html', {'form': form})
 
 
 @login_required
-def task_update(request, pk):
+def task_update(request):
     task = get_object_or_404(Task, pk=pk, user=request.user)
-    project = task.project 
 
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             task = form.save(commit=False)
             task.user = request.user
-            task.project = project 
             task.save()
-            return redirect('project_detail', project_id=project.id)
+            return redirect('task_list')
 
 @login_required
-def task_delete(request, pk):
+def task_delete(request):
     task = get_object_or_404(Task, pk=pk, user=request.user)
-    project = task.project 
 
     if request.method == 'POST':
         task.delete()
-        return redirect('project_detail', project_id=project.id)
+        return redirect('task_list')
 
-    return render(request, 'task_confirm_delete.html', {'task':task, 'project':project})
+    return render(request, 'task_confirm_delete.html', {'task':task})
+
+@login_required
+def toggle_task(request, task_pk):
+    task = get_object_or_404(Task, pk=task.pk, project__user=request.user)
+    task.completed = not task.completed
+    task.save()
+    return redirect('project_detail', pk=task.project.pk)
 
 def index(request):
     return render(request, 'todo/index.html')

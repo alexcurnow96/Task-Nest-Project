@@ -17,8 +17,22 @@ def project_list(request):
 
 @login_required
 def project_detail(request, pk):
-    task = get_object_or_404(Project, pk=pk, user=request.user)
-    return render(request, 'projects/project_detail.html', {'project': project})
+    project = get_object_or_404(Project, pk=pk, user=request.user)
+
+
+
+
+    projects = Project.objects.filter(user=request.user)
+    for project in projects:
+        tasks = Task.objects.filter(project=project)
+    
+    
+    
+    
+    
+    
+    tasks = []
+    return render(request, 'projects/project_detail.html', {'project': project, 'tasks': tasks})
 
 @login_required
 def project_create(request):

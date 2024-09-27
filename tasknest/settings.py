@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'todo',
-    'project',
 ]
 
 MIDDLEWARE = [
@@ -156,6 +155,7 @@ SOCIALACCOUNT_PROVIDERS = {}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 
