@@ -2,33 +2,35 @@
 
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 
+<div class="main_content">
+    <hr>
+    <h1>My To Do List</h1>
 
-<hr>
-<h1>My To Do List</h1>
+    <a href="{% url 'task_create' %}">Add Task</a>
 
-<a href="{% url 'task_create' %}">Add Task</a>
+    <form method="GET">
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form>
 
-<form method="GET">
-    <input type="text" name="search-area" value="{{search_input}}">
-    <input type="submit" value="Search">
-</form>
-
-<table>
-    <tr>
-        <th>Item</th>
-        <th></th>
-    </tr>
-    {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'task_detail' %}">View</a></td>
-        <td><a href="{% url 'task_update' %}">Edit</a></td>
-        <td><a href="{% url 'task_delete' %}">Delete</a></td>
-    </tr>
-    {% empty %}
+    <table>
+        <tr>
+            <th>Item</th>
+            <th></th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <input type="checkbox" id="checkbox">
+            <td>{{task.title}}</td>
+            <td><a href="{% url 'task_detail' %}">View</a></td>
+            <td><a href="{% url 'task_update' %}">Edit</a></td>
+            <td><a href="{% url 'task_delete' %}">Delete</a></td>
+        </tr>
+        {% empty %}
         <h3>No items in list</h3>
-    {% endfor %}
+        {% endfor %}
 
-    <p>Total tasks: {{ tasks.count }}</p>
+        <p>Total tasks: {{ tasks.count }}</p>
 
-</table>
+    </table>
+</div>
