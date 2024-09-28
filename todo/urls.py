@@ -1,9 +1,10 @@
 # Code partially taken from Dennis Ivy (see ReadMe for more details)
 
-from django.urls import path
+from django.urls import path, include
 from . import views
 from .views import task_list, task_create, task_delete, task_detail, task_update
 from django.contrib.auth.views import LogoutView
+from tasknest import urls
 
 urlpatterns = [
 

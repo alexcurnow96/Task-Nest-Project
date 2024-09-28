@@ -11,6 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3a3dab9761.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>TaskNest</title>
@@ -20,7 +23,7 @@
 
     <div class="wrapper">
         <div class="sidebar">
-            <h2>TaskNest</h2>
+            <h2><a href="">TaskNest</a></h2>
             <img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." width="150"
                 height="150">
             {% if request.user.is_authenticated %}
@@ -38,8 +41,7 @@
                 <li><a {% if request.path == login_url %}active{% endif %} aria-current="page"
                         href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
-                <li><a href=""><i></i>My Projects</a></li>
-                <li><a href="#"><i></i>My Kanban</a></li>
+                <li><a href="{% url 'task_list' %}"><i></i>Task List</a></li>
             </ul>
 
 
