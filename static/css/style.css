@@ -1,9 +1,14 @@
+/* ----------------------- UNIVERSAL STYLES ----------------------- */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
 }
+
+
+/* ----------------------- SIDE NAVBAR ----------------------- */
 
 .wrapper {
     position: absolute;
@@ -20,7 +25,6 @@
     height: 100%;
     font-weight: 400;
     font-size: 1.2em;
-    overflow: auto;
     padding-bottom: 6em;
     z-index: 9;
 }
@@ -42,7 +46,7 @@ h2 a {
     text-decoration: none;
 }
 
-.sidebar img {
+.navbarlogo {
     display: block;
     margin-left: auto; 
     margin-right: auto;
@@ -60,6 +64,16 @@ h2 a {
     margin-bottom: 1em;
 }
 
+input {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+}
+
+
+/* LIST STYLES */
 .sidebar ul {
     display: block;
 }
@@ -92,6 +106,8 @@ h2 a {
     vertical-align: middle;
 }
 
+
+/* SOCIAL MEDIA FOOTER */
 .wrapper .sidebar .social_media {
     position: absolute;
     bottom: 0;
@@ -112,8 +128,111 @@ h2 a {
     border-top-right-radius: 5px;
 }
 
+/* ----------------------- MAIN CONTENT ----------------------- */
+
 .main_content {
     margin: auto;
     width: 50%;
     padding: 10px;
+}
+
+
+/* ----------------------- INDEX PAGE ----------------------- */
+
+/* BUTTONS */
+.btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: #08428c;
+    border: 2px solid #08428c;
+    border-radius: 0.6em;
+    color: #377eac;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* CONTAINER DIVS */
+.examples {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 20px;
+}
+
+.examples h5 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 400;
+    text-decoration: underline;
+    text-align: center;
+    font-family: "Karla", sans-serif;
+}
+
+.examples p {
+    font-size: 1em;
+    font-family: "Inconsolata", sand-serif;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.examples h4 {
+    font-size: 1.5em;
+    font-family: "Inconsolata", sans-serif;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.examples li {
+    font-size: 0.8em;
+    font-family: "Inconsolata", sans-serif;
+    font-weight: 300;
+}
+
+
+.example-one {
+    background-color: #62a3cd;
+}
+
+.example-two {
+    background-color: #b0d1e5;
+}
+
+
+@media screen and (max-width: 768px) {
+    #nav-toggle {
+        position: absolute;
+        top: 5px;
+        left: 205px;
+        background: blueviolet;
+        padding: 4px 11px;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked ~ aside {
+        left: -250px;
+    }
 }

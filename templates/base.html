@@ -11,6 +11,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A todo site with the tagline, 'Get it done, one task at a time'">
+    <meta name="keywords" content="todo todolist list reminder organisation planning projectmanagement projectplanning project">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -23,8 +25,15 @@
 
     <div class="wrapper">
         <div class="sidebar">
+
             <h2 class="header"><a href="{% url 'index' %}">TaskNest</a></h2>
-            <a href="{% url 'index' %}"><img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes."></a>
+
+            <input type="checkbox" id="nav-toggle" name="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            
+            <a href="{% url 'index' %}"><img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." class="navbarlogo"></a>
             {% if request.user.is_authenticated %}
             <h4>{{request.user}}</h4>
             {% else %}

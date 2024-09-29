@@ -3,61 +3,61 @@
 
 {% block content %}
 <div class="main_content">
-    <div>
-        <img>
+    <div class="index">
+        <img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." height="250" width="250" class="logo">
         <h1>Task Nest</h1>
         <h3>Get it done, one task at a time</h3>
 
-        <p>Welcome to the place where productivity meets simplicity. Here you can, quite simply, "get it done, one task
-            at a time".
-            All tasks can be organised and achieved through projects, tasks and subtasks. Useable as a pne person show
-            or as a member
-            of the team, we want to make your planning simple.
+        <p>Welcome to the place where productivity meets simplicity. 
+            Here you can, quite simply, "get it done, one task
+            at a time". All tasks can be organised and achieved through projects, 
+            tasks and subtasks. Useable as a one person show
+            or as a member of the team, we want to make your planning simple.
         </p>
 
-        <button><a href="{% url 'task_list' %}">Get started now</a></button>
+        <button class="btn"><a href="{% url 'task_list' %}">Get started now</a></button>
 
     </div>
 
     <div>
 
-        <section>
+        <section class="examples example-one">
             <h5>E-commerce Platform Overhaul</h5>
             <p>Redesign and rebuild our e-commerce platform to enhance user experience and boost sales.</p>
             <h4>Tasks</h4>
             <ul>
-                <li>Gather requirements from stakeholders</li>
-                <li>Define project goals and timeline</li>
-                <li>Create user personas</li>
-                <li>Develop wireframes for key pages</li>
+                <li><i class="fa-regular fa-square-check"></i> Gather requirements from stakeholders</li>
+                <li><i class="fa-regular fa-square-check"></i> Define project goals and timeline</li>
+                <li><i class="fa-regular fa-square-check"></i> Create user personas</li>
+                <li><i class="fa-regular fa-square-check"></i> Develop wireframes for key pages</li>
                 <ul>
-                    <li>Homepage</li>
-                    <li>Product Listing</li>
-                    <li>Product Details</li>
-                    <li>Shopping Cart</li>
-                    <li>Checkout</li>
+                    <li><i class="fa-regular fa-square-check"></i> Homepage</li>
+                    <li><i class="fa-regular fa-square-check"></i> Product Listing</li>
+                    <li><i class="fa-regular fa-square-check"></i> Product Details</li>
+                    <li><i class="fa-regular fa-square-check"></i> Shopping Cart</li>
+                    <li><i class="fa-regular fa-square-check"></i> Checkout</li>
                 </ul>
-                <li>Conduct usability testing on designs</li>
+                <li><i class="fa-regular fa-square-check"></i> Conduct usability testing on designs</li>
             </ul>
         </section>
 
-        <section>
+        <section class="examples example-two">
             <h5>Living Room Makeover</h5>
             <p>Change the living room from drab to inviting. BUT make it stylish!</p>
             <h4>Tasks</h4>
             <ul>
-                <li>Remove all furniture</li>
-                <li>Clean the room thoroughly</li>
-                <li>Wash the walls</li>
-                <li>Pick paint colours</li>
-                <li>Paint the walls</li>
-                <li>Choose a new sofa</li>
-                <li>Put the remaining furniture back in the room</li>
-                <li>Choose new lighting</li>
-                <li>Get Sam to fit new lighting</li>
-                <li>Go crazy with decorations!!</li>
-                <li>Print pictures and place in new frames</li>
-                <li>Invite everyone round for a party!</li>
+                <li><i class="fa-regular fa-square-check"></i> Remove all furniture</li>
+                <li><i class="fa-regular fa-square-check"></i> Clean the room thoroughly</li>
+                <li><i class="fa-regular fa-square-check"></i> Wash the walls</li>
+                <li><i class="fa-regular fa-square-check"></i> Pick paint colours</li>
+                <li><i class="fa-regular fa-square-check"></i> Paint the walls</li>
+                <li><i class="fa-regular fa-square-check"></i> Choose a new sofa</li>
+                <li><i class="fa-regular fa-square-check"></i> Put the remaining furniture back in the room</li>
+                <li><i class="fa-regular fa-square-check"></i> Choose new lighting</li>
+                <li><i class="fa-regular fa-square-check"></i> Get Sam to fit new lighting</li>
+                <li><i class="fa-regular fa-square-check"></i> Go crazy with decorations!!</li>
+                <li><i class="fa-regular fa-square-check"></i> Print pictures and place in new frames</li>
+                <li><i class="fa-regular fa-square-check"></i> Invite everyone round for a party!</li>
             </ul>
 
         </section>
@@ -66,7 +66,7 @@
 
     <div>
 
-        <button><a href="{% url 'account_signup' %}">Sign Up Now</a></button>
+        <button class="btn"><a href="{% url 'account_signup' %}">Sign Up Now</a></button>
 
     </div>
 </div>
