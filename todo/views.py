@@ -27,8 +27,8 @@ def task_list(request):
 
 
 @login_required
-def task_detail(request, task_id):
-    task = get_object_or_404(Task, id=task_id, user=request.user)
+def task_detail(request, pk):
+    task = get_object_or_404(Task, pk=pk, user=request.user)
     comments = task.comments.all() #Fetch comments
 
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def task_detail(request, task_id):
             comment.task = task
             comment.user = request.user.id
             comment.save()
-            return redirect('task_detail', pk=task.pk)
+            return redirect('todo/task_detail.html', {'task': task})
 
     else:
         form = CommentForm()
@@ -109,7 +109,7 @@ def toggle_task(request, task_pk):
     return redirect('project_detail', pk=task.project.pk)
 
 
-
+#-----------------------COMMENTS-------------------------#
 
 @login_required
 def add_comment_to_task(request, pk):
@@ -123,9 +123,24 @@ def add_comment_to_task(request, pk):
             comment.task = task
             comment.user = request.user
             comment.save()
-            return redirect('todo/task', pk=task.pk)
+            return redirect('task_detail', pk=task.pk)
+        else:
+            form = CommentForm()
 
     return render(request, 'todo/task_detail.html', {'form': form, 'task': task})
+
+@login_required
+def delete_comment(request, comment_pk):
+    comment = get_object_or_404(Comment, pk=comment_pk)
+
+    if comment.user != request.user:
+        return HttpResponseForbidden("You don't have permission to delete this comment.")
+        
+    task_pk = comment.task.pk
+
+    comment.delete()
+
+    return redirect('task_detail', pk=task_pk)
 
 
 
