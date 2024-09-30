@@ -17,8 +17,8 @@
         <tr>
             <input type="checkbox" id="checkbox">
             <td>{{task.title}}</td>
-            <td><button class="btn btn-task-sm"><a href="{% url 'task_detail' %}">View</a></button></td>
-            <td><button class="btn btn-task-sm"><a href="{% url 'task_update' %}">Edit</a></button></td>
+            <td><button class="btn btn-task-sm"><a href="{% url 'task_detail' task.id %}">View</a></button></td>
+            <td><button class="btn btn-task-sm"><a href="{% url 'task_update' task.pk %}">Edit</a></button></td>
             <td><button class="btn btn-task-sm"><a href="{% url 'task_delete' %}">Delete</a></button></td>
         </tr>
         {% empty %}

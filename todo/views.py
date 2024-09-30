@@ -22,7 +22,7 @@ def task_list(request):
     return render(request, 'todo/task_list.html', context)
 
 @login_required
-def task_detail(request):
+def task_detail(request, task_id):
     task = get_object_or_404(Task, id=task_id, user=request.user)
     return render(request, 'todo/task.html', {'task': task})
 
@@ -42,7 +42,7 @@ def task_create(request):
 
 
 @login_required
-def task_update(request):
+def task_update(request, pk):
     task = get_object_or_404(Task, pk=pk, user=request.user)
 
     if request.method == 'POST':
@@ -65,7 +65,7 @@ def task_delete(request):
 
 @login_required
 def toggle_task(request, task_pk):
-    task = get_object_or_404(Task, pk=task.pk, project__user=request.user)
+    task = get_object_or_404(Task, pk=task_pk, project__user=request.user)
     task.completed = not task.completed
     task.save()
     return redirect('project_detail', pk=task.project.pk)

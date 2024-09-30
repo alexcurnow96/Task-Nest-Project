@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # Dennis Ivy - see Readme.md 
 
 class Task(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True)
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True, related_name='user_tasks')
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
