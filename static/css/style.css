@@ -295,6 +295,11 @@ h2 a {
     margin-top: 20px;
 }
 
+.completed {
+    text-decoration: line-through;
+    color:#000;
+}
+
 
 @media screen and (max-width: 768px) {
     #nav-toggle {

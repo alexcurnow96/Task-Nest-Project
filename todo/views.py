@@ -7,13 +7,16 @@ from .models import Task
 from django.db.models import Q
 from .forms import TaskForm
 
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+
 
 
 #-----------------------TASKS-------------------------#
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
-    count = tasks.filter(complete=False).count()
+    count = tasks.filter(completed=False).count()
 
     context = {
         'tasks': tasks,
@@ -68,12 +71,17 @@ def task_delete(request, pk):
 
     return render(request, 'todo/task_confirm_delete.html', {'task':task})
 
-@login_required
-def toggle_task(request, task_pk):
-    task = get_object_or_404(Task, pk=task_pk, project__user=request.user)
-    task.completed = not task.completed
-    task.save()
-    return redirect('project_detail', pk=task.project.pk)
-
 def index(request):
     return render(request, 'todo/index.html')
+
+
+
+# TOGGLE TASK FOR CHECKLIST
+
+@login_required
+@require_POST
+def toggle_task(request, task_id):
+    task = Task.objects.get(id=task.id)
+    task.completed = not task.completed
+    task.save()
+    return JsonResponse({'status':'success', 'completed': task.completed})

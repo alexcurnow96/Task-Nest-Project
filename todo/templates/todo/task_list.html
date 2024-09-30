@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+{% csrf_token %}
 
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
@@ -15,7 +17,8 @@
         </tr>
         {% for task in tasks %}
         <tr>
-            <td>{{task.title}}</td>
+            <td><input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" {% if task.completed %}checked{% endif %}></td>
+            <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
             <td><button class="btn btn-task-sm"><a href="{% url 'task_detail' task.id %}">View</a></button></td>
             <td><button class="btn btn-task-sm"><a href="{% url 'task_update' task.pk %}">Edit</a></button></td>
             <td><button class="btn btn-task-sm"><a href="{% url 'task_delete' task.pk %}">Delete</a></button></td>
@@ -27,5 +30,8 @@
         <p>Total tasks: {{ tasks.count }}</p>
 
     </table>
+    <script src="{% static 'js/script.js' %}"></script>
 </div>
+
+
 {% endblock %}
