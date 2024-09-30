@@ -15,4 +15,5 @@ urlpatterns = [
     path('task-update/<int:pk>/', views.task_update, name='task_update'),
     path('task-delete/<int:pk>/', views.task_delete, name='task_delete'),
     path('task/toggle/', views.toggle_task, name='toggle_task'),
+    path('task/<int:pk>/comment/', views.add_comment_to_task, name='add_comment_to_task'),
 ]

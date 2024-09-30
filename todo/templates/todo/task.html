@@ -6,4 +6,21 @@
     <h1 class="main-title heading">Task: {{task}}</h1>
     <p class="task-description">Description: {{task.description}}</p>
 </div>
+
+<div class="main-content">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+    <p>{{comment.user.username}}: {{ comment.text}} {{ comment.created_at}}</p>
+    {% empty %}
+    <p>No comments yet.</p>
+    {% endfor %}
+
+
+    <h3>Add a comment</h3>
+    <form method="post" action="{% url 'add_comment_to_task' task.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 {% endblock %}
