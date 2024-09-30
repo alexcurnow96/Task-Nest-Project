@@ -66,7 +66,7 @@ def task_delete(request, pk):
         task.delete()
         return redirect('task_list')
 
-    return render(request, 'task_confirm_delete.html', {'task':task})
+    return render(request, 'todo/task_confirm_delete.html', {'task':task})
 
 @login_required
 def toggle_task(request, task_pk):
