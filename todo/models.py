@@ -20,3 +20,11 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['completed']
+
+
+# COMMENT MODEL _ PLEASE WORK
+class Comment(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)

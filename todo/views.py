@@ -3,9 +3,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse 
-from .models import Task
+from .models import Task, Comment
 from django.db.models import Q
-from .forms import TaskForm
+from .forms import TaskForm, CommentForm
 
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
@@ -24,11 +24,35 @@ def task_list(request):
     }
     return render(request, 'todo/task_list.html', context)
 
+
+
 @login_required
 def task_detail(request, task_id):
     task = get_object_or_404(Task, id=task_id, user=request.user)
-    return render(request, 'todo/task.html', {'task': task})
+    comments = task.comments.all() #Fetch comments
 
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.task = task
+            comment.user = request.user
+            comment.save()
+            return redirect('task_detail', pk=task.pk)
+
+    else:
+        form = CommentForm()
+
+    context = {
+        'task': task,
+        'form': form,
+        'comments': comments,
+    }
+    return render(request, 'todo/task.html', context)
+
+
+
+@login_required
 def task_create(request):
 
     if request.method == 'POST':
@@ -42,6 +66,7 @@ def task_create(request):
         form = TaskForm()
 
     return render(request, 'todo/task_form.html', {'form': form})
+
 
 
 @login_required
@@ -61,6 +86,8 @@ def task_update(request, pk):
     context = {'form': form}
     return render(request, 'todo/task_form.html', context)
 
+
+
 @login_required
 def task_delete(request, pk):
     task = get_object_or_404(Task, pk=pk, user=request.user)
@@ -70,6 +97,34 @@ def task_delete(request, pk):
         return redirect('task_list')
 
     return render(request, 'todo/task_confirm_delete.html', {'task':task})
+
+
+
+
+@login_required
+def toggle_task(request, task_pk):
+    task = get_object_or_404(Task, pk=task_pk, project__user=request.user)
+    task.completed = not task.completed
+    task.save()
+    return redirect('project_detail', pk=task.project.pk)
+
+
+
+
+@login_required
+def add_comment_to_task(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.task = task
+            comment.author = request.user
+            comment.save()
+            return redirect('task_detail', pk=task.pk)
+    return render(request, 'task_detail.html', {'form': form})
+
+
 
 def index(request):
     return render(request, 'todo/index.html')
