@@ -159,7 +159,12 @@ h2 a {
 
 /* ----------------------- MAIN CONTENT ----------------------- */
 
-
+.message {
+    font-family: 'Inconsolata', sans-serif;
+    text-align: right;
+    padding-right: 1%;
+    padding-top: 0.5%;
+}
 
 
 /* ----------------------- INDEX PAGE ----------------------- */
@@ -279,6 +284,17 @@ h2 a {
     padding: 0.8em 0.8em;
     font-size: 0.7rem;
 }
+
+/* ----------------------- TASKS PAGE ----------------------- */
+
+.task-description {
+    font-size: 1em;
+    font-family: "Inconsolata", sand-serif;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
 
 @media screen and (max-width: 768px) {
     #nav-toggle {

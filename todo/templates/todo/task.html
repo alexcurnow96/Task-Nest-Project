@@ -3,6 +3,7 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
 <div class="main_content">
-    <h1>Task: {{task}}</h1>
+    <h1 class="main-title heading">Task: {{task}}</h1>
+    <p class="task-description">Description: {{task.description}}</p>
 </div>
 {% endblock %}

@@ -52,9 +52,14 @@ def task_update(request, pk):
             task.user = request.user
             task.save()
             return redirect('task_list')
+    else:
+        form = TaskForm(instance=task)
+
+    context = {'form': form}
+    return render(request, 'todo/task_form.html', context)
 
 @login_required
-def task_delete(request):
+def task_delete(request, pk):
     task = get_object_or_404(Task, pk=pk, user=request.user)
 
     if request.method == 'POST':
