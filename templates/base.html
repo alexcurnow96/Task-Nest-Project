@@ -34,6 +34,7 @@
             </label>
             
             <a href="{% url 'index' %}"><img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." class="navbarlogo"></a>
+            
             {% if request.user.is_authenticated %}
             <h4>{{request.user}}</h4>
             {% else %}

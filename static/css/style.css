@@ -19,6 +19,23 @@
     margin-left: 25vw;
 }
 
+.main-title {
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+.heading {
+    margin-top: 3em;
+}
+
 
 /* ----------------------- SIDE NAVBAR ----------------------- */
 
@@ -153,19 +170,6 @@ input {
     margin-right: auto;
 }
 
-.main-title {
-    font-family: 'Karla', sans-serif;
-    font-weight: 600;
-    font-size: 2em;
-    text-transform: uppercase;
-    align-items: center;
-    justify-content: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-}
-
 .tagline {
     font-family: 'Inconsolata', sans-serif;
     font-weight: 500;
@@ -177,6 +181,10 @@ input {
     margin-right: auto;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.main-description {
+    font-family: 'Inconsolata', sans-serif;
 }
 
 
@@ -197,9 +205,8 @@ input {
     margin: 20px;
     padding: 1.2em 2.8em;
     text-decoration: none;
-    text-align: center;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Karla', sans-serif;
     font-weight: 700;
 }
 
@@ -262,6 +269,16 @@ input {
     border-radius: 10px;
 }
 
+
+/* ----------------------- TASK LIST PAGE ----------------------- */
+.btn-task {
+    padding: 1.2em 1.2em;
+}
+
+.btn-task-sm {
+    padding: 0.8em 0.8em;
+    font-size: 0.7rem;
+}
 
 @media screen and (max-width: 768px) {
     #nav-toggle {

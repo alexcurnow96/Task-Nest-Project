@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
+{% block content %}
 <div class="main_content">
     <a href="{% url 'task_list' %}">Go back</a>
     <form method="POST">
@@ -9,3 +10,4 @@
         <input type="submit" value="Delete">
     </form>
 </div>
+{% endblock %}

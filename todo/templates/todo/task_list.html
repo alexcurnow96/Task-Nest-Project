@@ -1,17 +1,12 @@
 {% extends "base.html" %}
 
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
-
+{% block content %}
 <div class="main_content">
     <hr>
-    <h1>My To Do List</h1>
+    <h1 class="main-title heading">My To Do List</h1>
 
-    <a href="{% url 'task_create' %}">Add Task</a>
-
-    <form method="GET">
-        <input type="text" name="search-area" value="{{search_input}}">
-        <input type="submit" value="Search">
-    </form>
+    <button class="btn btn-task"><a href="{% url 'task_create' %}">Add Task</a></button>
 
     <table>
         <tr>
@@ -22,15 +17,16 @@
         <tr>
             <input type="checkbox" id="checkbox">
             <td>{{task.title}}</td>
-            <td><a href="{% url 'task_detail' %}">View</a></td>
-            <td><a href="{% url 'task_update' %}">Edit</a></td>
-            <td><a href="{% url 'task_delete' %}">Delete</a></td>
+            <td><button class="btn btn-task-sm"><a href="{% url 'task_detail' %}">View</a></button></td>
+            <td><button class="btn btn-task-sm"><a href="{% url 'task_update' %}">Edit</a></button></td>
+            <td><button class="btn btn-task-sm"><a href="{% url 'task_delete' %}">Delete</a></button></td>
         </tr>
         {% empty %}
-        <h3>No items in list</h3>
+        
         {% endfor %}
 
         <p>Total tasks: {{ tasks.count }}</p>
 
     </table>
 </div>
+{% endblock %}
