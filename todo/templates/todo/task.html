@@ -7,7 +7,7 @@
     <p class="task-description">Description: {{task.description}}</p>
 </div>
 
-<div class="main-content">
+<div class="main-content examples">
     <h2>Comments</h2>
     {% for comment in comments %}
     <p>{{comment.user.username}}: {{ comment.text}} {{ comment.created_at}}</p>

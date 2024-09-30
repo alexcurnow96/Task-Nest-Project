@@ -36,7 +36,7 @@ def task_detail(request, task_id):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.task = task
-            comment.user = request.user
+            comment.user = request.user.id
             comment.save()
             return redirect('task_detail', pk=task.pk)
 
@@ -59,7 +59,7 @@ def task_create(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task.user = request.user
+            task.user = request.user.id
             task.save()
             return redirect('task_list')
     else:
@@ -114,15 +114,18 @@ def toggle_task(request, task_pk):
 @login_required
 def add_comment_to_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
+
         if form.is_valid():
             comment = form.save(commit=False)
             comment.task = task
-            comment.author = request.user
+            comment.user = request.user
             comment.save()
-            return redirect('task_detail', pk=task.pk)
-    return render(request, 'task_detail.html', {'form': form})
+            return redirect('todo/task', pk=task.pk)
+
+    return render(request, 'todo/task_detail.html', {'form': form, 'task': task})
 
 
 
