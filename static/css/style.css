@@ -285,6 +285,25 @@ h2 a {
     font-size: 0.7rem;
 }
 
+.btn-edit {
+    background-color: #4f98c6;
+    border-color: #4f98c6;
+}
+
+.btn-view {
+    background-color: #c3dcec;
+    border-color: #c3dcec;
+}
+
+.btn-delete {
+    background-color: #89BAD9;
+    border-color: #89BAD9;
+}
+
+.task-checkbox {
+    display: none;
+}
+
 /* ----------------------- TASKS PAGE ----------------------- */
 
 .task-description {
