@@ -21,20 +21,22 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/3a3dab9761.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>TaskNest</title>
+    <title>Task Nest</title>
 </head>
 
 <body>
 
     <div class="wrapper">
-        <div class="sidebar">
 
-            <h2 class="header"><a href="{% url 'index' %}">TaskNest</a></h2>
+        <div class="menu-toggle">
+            <div class="hamburger">
+                <span><i class="fa-solid fa-bars"></i></span>
+            </div>
+        </div>
 
-            <input type="checkbox" id="nav-toggle" name="nav-toggle">
-            <label for="nav-toggle" class="nav-toggle-label">
-                <i class="fa-solid fa-bars"></i>
-            </label>
+        <aside class="sidebar">
+
+            <h2 class="header"><a href="{% url 'index' %}">Task Nest</a></h2>
 
             <a href="{% url 'index' %}"><img src="{% static 'images/tasknestlogo.jpg' %}"
                     alt="A blue birds nest with 4 shield checkboxes." class="navbarlogo"></a>
@@ -66,21 +68,23 @@
                 <a href="www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
                 <a href="www.twitter.com"><i class="fa-brands fa-square-x-twitter"></i></a>
             </div>
+        </aside>
+    </div>
+
+    <div class="content">
+        <div class="message">
+            {% if user.is_authenticated %}
+            <p class="text-end m-3">Welcome {{ user }} you are logged in</p>
+            {% else %}
+            <p class="text-end m-3">You are not currently logged in, please log in or register and get involved</p>
+            {% endif %}
         </div>
-    </div>
 
-    <div class="message">
-        {% if user.is_authenticated %}
-        <p class="text-end m-3">Welcome {{ user }} you are logged in</p>
-        {% else %}
-        <p class="text-end m-3">You are not currently logged in, please log in or register and get involved</p>
-        {% endif %}
+        <main>
+            {% block content%}
+            {% endblock%}
+        </main>
     </div>
-
-    <main>
-        {% block content%}
-        {% endblock%}
-    </main>
 
 
 </body>

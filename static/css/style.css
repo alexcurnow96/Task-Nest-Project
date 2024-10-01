@@ -51,7 +51,7 @@
     position: fixed;
     background: #89BAD9;
     width: 13em;
-    height: 100%;
+    height: 100vh;
     font-weight: 400;
     font-size: 1.2em;
     padding-bottom: 6em;
@@ -93,12 +93,44 @@ h2 a {
     margin-bottom: 1em;
 }
 
-.sidebar input {
-    display: none;
+.hamburger {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
 }
 
-.nav-toggle-label {
-    display: none;
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background-color: #FFF;
+  transition-duration: .25s;
+}
+
+.hamburger > span::before {
+  content: '';
+  top: -8px;
+}
+.hamburger > span::after {
+  content: '';
+  top: 8px;
+}
+.menu-toggle.is-active .hamburger > span {
+  transform: rotate(45deg);
+}
+.menu-toggle.is-active .hamburger > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+.menu-toggle.is-active .hamburger > span::after {
+  top: 0;
+  transform: rotate(90deg);
 }
 
 
@@ -325,22 +357,27 @@ h2 a {
 /* ----------------------- MEDIA QUERIES ----------------------- */
 
 @media screen and (max-width: 768px) {
-    #nav-toggle {
-        position: absolute;
-        top: 5px;
-        left: 205px;
-        background: blueviolet;
-        padding: 4px 11px;
-        text-align: center;
-        border-radius: 8px;
-        cursor: pointer;
+    
+    .menu-toggle {
+        display: block;
     }
 
-    input {
-        display: none;
+    .content {
+        padding-top: 8rem;
     }
 
-    input:checked ~ aside {
-        left: -250px;
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left:-300px;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        transition: 0.2s linear;
     }
+
+    .sidebar.is-active {
+		left: 0;
+	}
+
 }
