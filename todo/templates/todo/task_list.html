@@ -32,14 +32,18 @@
         </tr>
         {% for task in tasks %}
         <tr>
-            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}" {% if task.completed %}checked{% endif %}>
+            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}"
+                {% if task.completed %}checked{% endif %}>
             <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
-            <td><button class="btn btn-task-sm btn-view"><a href="{% url 'task_detail' task.id %}">View</a></button></td>
-            <td><button class="btn btn-task-sm btn-edit"><a href="{% url 'task_update' task.pk %}">Edit</a></button></td>
-            <td><button class="btn btn-task-sm btn-delete"><a href="{% url 'task_delete' task.pk %}">Delete</a></button></td>
+            <td><button class="btn btn-task-sm btn-view"><a href="{% url 'task_detail' task.id %}">View</a></button>
+            </td>
+            <td><button class="btn btn-task-sm btn-edit"><a href="{% url 'task_update' task.pk %}">Edit</a></button>
+            </td>
+            <td><button class="btn btn-task-sm btn-delete"><a href="{% url 'task_delete' task.pk %}">Delete</a></button>
+            </td>
         </tr>
         {% empty %}
-        
+
         {% endfor %}
 
         <p>Total tasks: {{ tasks.count }}</p>

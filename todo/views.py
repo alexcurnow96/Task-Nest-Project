@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse 
+from django.urls import reverse
 from .models import Task, Comment
 from django.db.models import Q
 from .forms import TaskForm, CommentForm
@@ -13,8 +13,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 
 
-
-#-----------------------TASKS-------------------------#
+# -----------------------TASKS-------------------------#
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
@@ -27,11 +26,10 @@ def task_list(request):
     return render(request, 'todo/task_list.html', context)
 
 
-
 @login_required
 def task_detail(request, pk):
     task = get_object_or_404(Task, pk=pk, user=request.user)
-    comments = task.comments.all() #Fetch comments
+    comments = task.comments.all()  # Fetch comments
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -53,7 +51,6 @@ def task_detail(request, pk):
     return render(request, 'todo/task.html', context)
 
 
-
 @login_required
 def task_create(request):
 
@@ -68,9 +65,7 @@ def task_create(request):
     else:
         form = TaskForm()
 
-
     return render(request, 'todo/task_form.html', {'form': form})
-
 
 
 @login_required
@@ -88,11 +83,8 @@ def task_update(request, pk):
     else:
         form = TaskForm(instance=task)
 
-    
-
     context = {'form': form}
     return render(request, 'todo/task_form.html', context)
-
 
 
 @login_required
@@ -104,11 +96,7 @@ def task_delete(request, pk):
         messages.success(request, "You have deleted a task from your list.")
         return redirect('task_list')
 
-    
-
-    return render(request, 'todo/task_confirm_delete.html', {'task':task})
-
-
+    return render(request, 'todo/task_confirm_delete.html', {'task': task})
 
 
 @login_required
@@ -119,10 +107,8 @@ def toggle_task(request, task_pk):
     messages.success(request, "You have completed a task on your list.")
     return redirect('project_detail', pk=task.project.pk)
 
-    
 
-
-#-----------------------COMMENTS-------------------------#
+# -----------------------COMMENTS-------------------------#
 
 @login_required
 def add_comment_to_task(request, pk):
@@ -141,9 +127,8 @@ def add_comment_to_task(request, pk):
         else:
             form = CommentForm()
 
-       
-
     return render(request, 'todo/task_detail.html', {'form': form, 'task': task})
+
 
 @login_required
 def delete_comment(request, comment_pk):
@@ -151,7 +136,7 @@ def delete_comment(request, comment_pk):
 
     if comment.user != request.user:
         return HttpResponseForbidden("You don't have permission to delete this comment.")
-        
+
     task_pk = comment.task.pk
 
     comment.delete()
@@ -160,10 +145,8 @@ def delete_comment(request, comment_pk):
     return redirect('task_detail', pk=task_pk)
 
 
-
 def index(request):
     return render(request, 'todo/index.html')
-
 
 
 # TOGGLE TASK FOR CHECKLIST
@@ -174,6 +157,4 @@ def toggle_task(request, task_id):
     task = Task.objects.get(id=task.id)
     task.completed = not task.completed
     task.save()
-    return JsonResponse({'status':'success', 'completed': task.completed})
-
-
+    return JsonResponse({'status': 'success', 'completed': task.completed})
