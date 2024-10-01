@@ -10,6 +10,8 @@ from .forms import TaskForm, CommentForm
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
+from django.contrib import messages
+
 
 
 #-----------------------TASKS-------------------------#
@@ -61,9 +63,11 @@ def task_create(request):
             task = form.save(commit=False)
             task.user = request.user
             task.save()
+            messages.success(request, "You have added a task to your list.")
             return redirect('task_list')
     else:
         form = TaskForm()
+
 
     return render(request, 'todo/task_form.html', {'form': form})
 
@@ -79,9 +83,12 @@ def task_update(request, pk):
             task = form.save(commit=False)
             task.user = request.user
             task.save()
+            messages.success(request, "You have updated a task on your list.")
             return redirect('task_list')
     else:
         form = TaskForm(instance=task)
+
+    
 
     context = {'form': form}
     return render(request, 'todo/task_form.html', context)
@@ -94,7 +101,10 @@ def task_delete(request, pk):
 
     if request.method == 'POST':
         task.delete()
+        messages.success(request, "You have deleted a task from your list.")
         return redirect('task_list')
+
+    
 
     return render(request, 'todo/task_confirm_delete.html', {'task':task})
 
@@ -106,7 +116,10 @@ def toggle_task(request, task_pk):
     task = get_object_or_404(Task, pk=task_pk, project__user=request.user)
     task.completed = not task.completed
     task.save()
+    messages.success(request, "You have completed a task on your list.")
     return redirect('project_detail', pk=task.project.pk)
+
+    
 
 
 #-----------------------COMMENTS-------------------------#
@@ -123,9 +136,12 @@ def add_comment_to_task(request, pk):
             comment.task = task
             comment.user = request.user
             comment.save()
+            messages.success(request, "You have added a comment to your task.")
             return redirect('task_detail', pk=task.pk)
         else:
             form = CommentForm()
+
+       
 
     return render(request, 'todo/task_detail.html', {'form': form, 'task': task})
 
@@ -139,6 +155,7 @@ def delete_comment(request, comment_pk):
     task_pk = comment.task.pk
 
     comment.delete()
+    messages.success(request, "You have deleted a comment from your task.")
 
     return redirect('task_detail', pk=task_pk)
 
@@ -158,3 +175,5 @@ def toggle_task(request, task_id):
     task.completed = not task.completed
     task.save()
     return JsonResponse({'status':'success', 'completed': task.completed})
+
+

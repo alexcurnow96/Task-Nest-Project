@@ -5,6 +5,21 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
 <div class="main_content">
+
+    <div>
+        <div>
+            <div>
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %} alert-dismissible fade show"
+                    id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <hr>
     <h1 class="main-title heading">My To Do List</h1>
 
