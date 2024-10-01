@@ -59,7 +59,7 @@ def task_create(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task.user = request.user.id
+            task.user = request.user
             task.save()
             return redirect('task_list')
     else:

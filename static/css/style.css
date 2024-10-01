@@ -37,6 +37,8 @@
 }
 
 
+
+
 /* ----------------------- SIDE NAVBAR ----------------------- */
 
 .wrapper {
@@ -91,6 +93,18 @@ h2 a {
     font-weight: 400;
     margin-top: 1.5em;
     margin-bottom: 1em;
+}
+
+.menu-toggle {
+	display: none;
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+	width: 60px;
+	height: 60px;
+	border-radius: 99px;
+	background-color: #08428c;
+	cursor: pointer;
 }
 
 .hamburger {
@@ -189,6 +203,9 @@ h2 a {
     border-top-right-radius: 5px;
 }
 
+
+
+
 /* ----------------------- MAIN CONTENT ----------------------- */
 
 .message {
@@ -196,6 +213,10 @@ h2 a {
     text-align: right;
     padding-right: 1%;
     padding-top: 0.5%;
+}
+
+.content {
+    padding-top: 12px;
 }
 
 
@@ -358,12 +379,31 @@ h2 a {
 
 @media screen and (max-width: 768px) {
     
+    .main_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        width: 100vw;
+        padding: 10px;
+    }
+
+    .main-description {
+        width: 80vw;
+    }
+
+
+
+
+
     .menu-toggle {
         display: block;
     }
 
     .content {
-        padding-top: 8rem;
+        padding-top: 6rem;
     }
 
     .sidebar {
