@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
 //get the menu toggle and sidebar elements
 const menu_toggle = document.querySelector(".menu-toggle");
 const sidebar = document.querySelector(".sidebar");
@@ -45,6 +47,9 @@ menu_toggle.addEventListener("click", () => {
   menu_toggle.classList.toggle("is-active");
   sidebar.classList.toggle("is-active");
 });
+
+
+
 
 //get all elements with the hoverable class and the popup element
 const hoverables = document.querySelectorAll('.hoverable');
