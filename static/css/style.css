@@ -231,12 +231,10 @@ h2 a {
   text-transform: uppercase;
   font-family: "Karla", sans-serif;
   font-weight: 700;
+  color: white;
+  text-decoration: none;
 }
 
-.btn a {
-  text-decoration: none;
-  color: white;
-}
 
 /* ----------------------- INDEX PAGE ----------------------- */
 

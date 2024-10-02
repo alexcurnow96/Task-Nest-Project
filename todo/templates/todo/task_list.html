@@ -26,7 +26,7 @@
     <h1 class="main-title heading">My To Do List</h1>
 
     <!-- Button to add a new task -->
-    <button class="btn btn-task"><a href="{% url 'task_create' %}">Add Task</a></button>
+    <a class="btn" href="{% url 'task_create' %}">Add Task</a>
 
     <!-- Display a total number of tasks -->
     <p>Total tasks: {{ tasks.count }}</p>
@@ -42,13 +42,13 @@
             <!-- Task title with completed class if task is completed -->
             <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
             <!-- View task button -->
-            <td><button class="btn btn-task-sm btn-view hoverable" data-popup="View your task and leave a comment"><a class="hoverable" data-popup="View your task and leave a comment" href="{% url 'task_detail' task.id %}">View</a></button>
+            <td><a class="hoverable btn btn-task-sm btn-view" data-popup="View your task and leave a comment" href="{% url 'task_detail' task.id %}">View</a>
             </td>
             <!-- Edit task button -->
-            <td><button class="btn btn-task-sm btn-edit hoverable" data-popup="Edit your task and mark as completed"><a class="hoverable" data-popup="Edit your task and mark as completed" href="{% url 'task_update' task.pk %}">Edit</a></button>
+            <td><a class="hoverable btn btn-task-sm btn-edit" data-popup="Edit your task and mark as completed" href="{% url 'task_update' task.pk %}">Edit</a>
             </td>
             <!-- Delete task button -->
-            <td><button class="btn btn-task-sm btn-delete hoverable" data-popup="Delete your task from your list"><a class="hoverable" data-popup="Delete your task from your list" href="{% url 'task_delete' task.pk %}">Delete</a></button>
+            <td><a class="hoverable btn btn-task-sm btn-delete" data-popup="Delete your task from your list" href="{% url 'task_delete' task.pk %}">Delete</a>
             </td>
         </tr>
         
