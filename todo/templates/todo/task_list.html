@@ -35,13 +35,16 @@
             <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}"
                 {% if task.completed %}checked{% endif %}>
             <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
-            <td><button class="btn btn-task-sm btn-view"><a href="{% url 'task_detail' task.id %}">View</a></button>
+            <td><button class="btn btn-task-sm btn-view hoverable" data-popup="View your task and leave a comment"><a class="hoverable" data-popup="View your task and leave a comment" href="{% url 'task_detail' task.id %}">View</a></button>
             </td>
-            <td><button class="btn btn-task-sm btn-edit"><a href="{% url 'task_update' task.pk %}">Edit</a></button>
+            <td><button class="btn btn-task-sm btn-edit hoverable" data-popup="Edit your task and mark as completed"><a class="hoverable" data-popup="Edit your task and mark as completed" href="{% url 'task_update' task.pk %}">Edit</a></button>
             </td>
-            <td><button class="btn btn-task-sm btn-delete"><a href="{% url 'task_delete' task.pk %}">Delete</a></button>
+            <td><button class="btn btn-task-sm btn-delete hoverable" data-popup="Delete your task from your list"><a class="hoverable" data-popup="Delete your task from your list" href="{% url 'task_delete' task.pk %}">Delete</a></button>
             </td>
+            <div id="popup" class="popup"></div>
         </tr>
+
+        
         {% empty %}
 
         {% endfor %}

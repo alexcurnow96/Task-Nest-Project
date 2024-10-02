@@ -60,7 +60,7 @@ def task_create(request):
             task = form.save(commit=False)
             task.user = request.user
             task.save()
-            messages.success(request, "You have added a task to your list.")
+            messages.add_message(request, messages.SUCCESS, "You have added a task to your list.")
             return redirect('task_list')
     else:
         form = TaskForm()

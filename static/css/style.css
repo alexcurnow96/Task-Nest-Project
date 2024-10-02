@@ -344,6 +344,23 @@ h2 a {
   display: none;
 }
 
+
+/* POPUPS! */
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hoverable {
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+}
+
 /* ----------------------- TASKS PAGE ----------------------- */
 
 .task-description {
@@ -363,6 +380,7 @@ h2 a {
 /* ----------------------- ACCOUNTS PAGES ----------------------- */
 
 .account-heading {
+  margin-top: 10%;
   margin-bottom: 15px;
 }
 
