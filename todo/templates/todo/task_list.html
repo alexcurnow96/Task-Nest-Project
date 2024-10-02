@@ -6,6 +6,7 @@
 {% block content %}
 <div class="main_content">
 
+    <!-- Message display section -->
     <div>
         <div>
             <div>
@@ -21,12 +22,16 @@
     </div>
 
     <hr>
+    <!-- Main title -->
     <h1 class="main-title heading">My To Do List</h1>
 
+    <!-- Button to add a new task -->
     <button class="btn btn-task"><a href="{% url 'task_create' %}">Add Task</a></button>
 
+    <!-- Display a total number of tasks -->
     <p>Total tasks: {{ tasks.count }}</p>
 
+    <!-- Table to display tasks -->
     <table>
         <tr>
             <th>Item</th>
@@ -34,22 +39,28 @@
         </tr>
         {% for task in tasks %}
         <tr>
+            <!-- Task title with completed class if task is completed -->
             <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
+            <!-- View task button -->
             <td><button class="btn btn-task-sm btn-view hoverable" data-popup="View your task and leave a comment"><a class="hoverable" data-popup="View your task and leave a comment" href="{% url 'task_detail' task.id %}">View</a></button>
             </td>
+            <!-- Edit task button -->
             <td><button class="btn btn-task-sm btn-edit hoverable" data-popup="Edit your task and mark as completed"><a class="hoverable" data-popup="Edit your task and mark as completed" href="{% url 'task_update' task.pk %}">Edit</a></button>
             </td>
+            <!-- Delete task button -->
             <td><button class="btn btn-task-sm btn-delete hoverable" data-popup="Delete your task from your list"><a class="hoverable" data-popup="Delete your task from your list" href="{% url 'task_delete' task.pk %}">Delete</a></button>
             </td>
         </tr>
         
         {% empty %}
-
+        <!-- This block will be rendered if there are no tasks -->
         {% endfor %}
 
     </table>
-
+    <!-- Pop up element for displaying additional information -->
     <div id="popup" class="popup"></div>
+
+    <!-- Load custom JavaScript from file -->
     <script src="{% static 'js/script.js' %}"></script>
 </div>
 

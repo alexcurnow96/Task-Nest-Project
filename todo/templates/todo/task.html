@@ -3,25 +3,36 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
 <div class="main_content">
+    <!-- Display task title -->
     <h1 class="main-title heading">Task: {{task}}</h1>
+    <!-- Display task description -->
     <p class="task-description">Description: {{task.description}}</p>
 </div>
 
 <div class="main_content">
+    <!-- Comments section -->
     <div class="comments">
         <h2>Comments</h2>
+        <!-- Loop through all comments for this task -->
         {% for comment in comments %}
+        <!-- Display commenter's username, comment text, and timestamp -->
         <p class="comment">{{comment.user.username}}: {{ comment.text}} <span>{{ comment.created_at}}</span></p>
+        <!-- Link to delete the comment -->
         <a href="{% url 'delete_comment' comment_pk=comment.pk %}"><i class="fa-solid fa-trash"></i></a>
         {% empty %}
+        <!-- Displayed if there are no comments -->
         <p>No comments yet.</p>
         {% endfor %}
     </div>
 
+    <!-- Comment form section -->
     <div class="comments">
         <h3>Add a comment</h3>
+        <!-- Form to add a new comment -->
         <form method="post" action="{% url 'add_comment_to_task' task.pk %}">
+            <!-- Cross-Site Request Forgery -->
             {% csrf_token %}
+            <!-- Render the forms as paragraphs -->
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>

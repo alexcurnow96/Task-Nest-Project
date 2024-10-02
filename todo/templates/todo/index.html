@@ -3,12 +3,15 @@
 
 {% block content %}
 <div class="main_content">
+
+    <!-- Hero section with logo and tagline -->
     <div class="index">
         <img src="./static/images/tasknestlogo.jpg" alt="A blue birds nest with 4 shield checkboxes." height="300"
             width="300" class="logo">
         <h1 class="main-title">Task Nest</h1>
         <h3 class="tagline">Get it done, one task at a time</h3>
 
+        <!-- Main description of the app -->
         <p class="main-description">Welcome to the place where productivity meets simplicity.
             Here you can, quite simply, "get it done, one task
             at a time". All tasks can be organised and achieved through projects,
@@ -18,12 +21,13 @@
 
     </div>
 
+    <!-- Call to action button -->
     <div>
         <button class="btn"><a href="{% url 'task_list' %}">Get started now</a></button>
     </div>
 
     <div>
-
+        <!-- Example 1: E-commerce Platform Overhaul -->
         <section class="examples example-one">
             <h5>E-commerce Platform Overhaul</h5>
             <p>Redesign and rebuild our e-commerce platform to enhance user experience and boost sales.</p>
@@ -44,6 +48,7 @@
             </ul>
         </section>
 
+        <!-- Example 2: Living Room Makeover -->
         <section class="examples example-two">
             <h5>Living Room Makeover</h5>
             <p>Change the living room from drab to inviting. BUT make it stylish!</p>
@@ -68,7 +73,7 @@
     </div>
 
     <div>
-
+        <!-- Final Call to Action -->
         <button class="btn"><a href="{% url 'account_signup' %}">Sign Up Now</a></button>
 
     </div>

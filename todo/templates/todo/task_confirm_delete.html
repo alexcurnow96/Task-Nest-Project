@@ -3,10 +3,18 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
 <div class="main_content">
+    <!-- Link to go back to the task list -->
     <a href="{% url 'task_list' %}">Go back</a>
+
+    <!-- Delete confirmation form -->
     <form method="POST">
+        <!-- Cross-Site Request Forgery -->
         {% csrf_token %}
+
+        <!-- Confirmation message, double checking with user -->
         <p>Are you sure you want to delete this task? "{{task}}"</p>
+
+        <!-- Submit button to confirm deletion -->
         <input type="submit" value="Delete">
     </form>
 </div>

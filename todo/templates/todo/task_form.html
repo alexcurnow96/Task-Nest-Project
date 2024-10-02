@@ -3,11 +3,21 @@
 <!-- Code partially taken from Dennis Ivy (see ReadMe for more details) -->
 {% block content %}
 <div class="main_content">
+    <!-- Title for the task form -->
     <h3 class="main-title heading"> Task Form</h3>
+
+    <!-- Button to go back to the task list -->
     <button class="btn"><a href="{% url 'task_list' %}">Go back</a></button>
+
+    <!-- Form for creating or editing a task -->
     <form method="POST" action="">
+        <!-- Cross-Site Request Forgery -->
         {% csrf_token %}
+
+        <!-- Render the forms as paragraphs -->
         {{form.as_p}}
+
+        <!-- Submit button for the form -->
         <input class="btn" type="submit" value="Submit">
     </form>
 </div>

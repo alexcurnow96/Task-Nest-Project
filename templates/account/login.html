@@ -10,8 +10,10 @@
 <div class="main_content">
     <div>
         <div>
+            <!-- Title for the sign in page -->
             <h3 class="main-title account-heading">{% trans "Sign In" %}</h3>
 
+            <!-- Message for users who don't have an account yet -->
             <p class="account-message">{% blocktrans %} If you have not created an account yet, then
                 <a class="link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
@@ -19,12 +21,17 @@
     </div>
     <div>
         <div>
+            <!-- Sign in form -->
             <form class="login account-form" method="POST" action="{% url 'account_login' %}">
+                <!-- Cross-Site Request Forgery -->
                 {% csrf_token %}
+                <!-- Render the form fields as paragraphs -->
                 {{ form.as_p }}
+                <!-- Hidden field for redirect after login, if specified -->
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
+                <!-- Submit button -->
                 <button class="btn" type="submit">{% trans "Sign In" %}</button>
             </form>
         </div>

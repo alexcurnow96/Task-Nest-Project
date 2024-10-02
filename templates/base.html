@@ -27,25 +27,28 @@
 <body>
 
     <div class="wrapper">
-
+        <!-- Hamburger menu for mobile -->
         <div class="menu-toggle">
             <div class="hamburger">
                 <span></span>
             </div>
         </div>
-
+        <!-- Sidebar navigation -->
         <aside class="sidebar">
 
             <h2 class="header"><a href="{% url 'index' %}">Task Nest</a></h2>
-
+            <!-- Logo -->
             <a href="{% url 'index' %}"><img src="{% static 'images/tasknestlogo.jpg' %}"
                     alt="A blue birds nest with 4 shield checkboxes." class="navbarlogo"></a>
 
+            <!-- Display username if authenticated -->
             {% if request.user.is_authenticated %}
             <h4>{{request.user}}</h4>
             {% else %}
             <h4></h4>
             {% endif %}
+
+            <!-- Navigation Menu -->
             <ul>
                 <li><a href="{% url 'task_list' %}"><i class="fa-solid fa-list-check"></i>Task List</a></li>
                 {% if user.is_authenticated %}
@@ -62,7 +65,7 @@
 
             </ul>
 
-
+            <!-- Social Media Links -->
             <div class="social_media">
                 <a href="www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
                 <a href="www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
@@ -71,7 +74,9 @@
         </aside>
     </div>
 
+    <!-- Main content area -->
     <div class="content">
+        <!-- Welcome Message -->
         <div class="message">
             {% if user.is_authenticated %}
             <p class="text-end m-3">Welcome {{ user }} you are logged in</p>
@@ -80,13 +85,14 @@
             {% endif %}
         </div>
 
-
+        <!-- Main content block to be filled by child templates -->
         <main>
             {% block content%}
             {% endblock%}
         </main>
     </div>
 
+    <!-- Load custom JavaScript from file -->
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 

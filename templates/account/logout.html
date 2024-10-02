@@ -8,19 +8,23 @@
 <div class="container main_content">
     <div>
         <div>
+            <!-- Title for the sign out page -->
             <h3 class="main-title account-heading">{% trans "Sign Out" %}</h3>
-
+            <!-- Clarification message to double check from user -->
             <p class="account-message">{% trans 'Are you sure you want to sign out?' %}</p>
         </div>
     </div>
     <div>
         <div>
-
+            <!-- Sign out form -->
             <form class="account-form" method="post" action="{% url 'account_logout' %}">
+                <!-- Cross-Site Request Forgery -->
                 {% csrf_token %}
+                <!-- Hidden field for redirect after login, if specified -->
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
+                <!-- Submit button -->
                 <button class="btn">{% trans 'Sign Out' %}</button>
             </form>
         </div>
