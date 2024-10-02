@@ -10,16 +10,16 @@
 <div class="main_content">
     <div>
         <div>
-            <h3>{% trans "Sign In" %}</h3>
+            <h3 class="main-title account-heading">{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %} If you have not created an account yet, then
+            <p class="account-message">{% blocktrans %} If you have not created an account yet, then
                 <a class="link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
         </div>
     </div>
     <div>
         <div>
-            <form class="login" method="POST" action="{% url 'account_login' %}">
+            <form class="login account-form" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}

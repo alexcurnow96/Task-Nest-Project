@@ -211,31 +211,6 @@ h2 a {
   padding-top: 12px;
 }
 
-/* ----------------------- INDEX PAGE ----------------------- */
-
-.main_content img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tagline {
-  font-family: "Inconsolata", sans-serif;
-  font-weight: 500;
-  font-size: 1.5em;
-  align-items: center;
-  justify-content: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.main-description {
-  font-family: "Inconsolata", sans-serif;
-}
-
 /* BUTTONS */
 .btn {
   box-sizing: border-box;
@@ -261,6 +236,31 @@ h2 a {
 .btn a {
   text-decoration: none;
   color: white;
+}
+
+/* ----------------------- INDEX PAGE ----------------------- */
+
+.main_content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tagline {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.main-description {
+  font-family: "Inconsolata", sans-serif;
 }
 
 /* CONTAINER DIVS */
@@ -357,6 +357,44 @@ h2 a {
 .completed {
   text-decoration: line-through;
   color: #000;
+}
+
+
+/* ----------------------- ACCOUNTS PAGES ----------------------- */
+
+.account-heading {
+  margin-bottom: 15px;
+}
+
+.account-message {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.account-form {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.account-form p {
+  padding: 4px 4px;
 }
 
 /* ----------------------- MEDIA QUERIES ----------------------- */
