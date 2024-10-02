@@ -10,7 +10,7 @@
     <a class="btn" href="{% url 'task_list' %}">Go back</a>
 
     <!-- Form for creating or editing a task -->
-    <form method="POST" action="">
+    <form method="POST">
         <!-- Cross-Site Request Forgery -->
         {% csrf_token %}
 
