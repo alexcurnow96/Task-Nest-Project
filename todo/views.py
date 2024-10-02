@@ -1,5 +1,6 @@
 # Code taken from Dennis Ivy (see ReadMe for details)
 
+# Importing necessary modules and functions
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -13,10 +14,12 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 
 
-# -----------------------TASKS-------------------------#
+# -----------------------TASK RELATED VIEWS -------------------------#
 @login_required
 def task_list(request):
+    #retrieve tasks for the logged-in user
     tasks = Task.objects.filter(user=request.user)
+    #count incomplete tasks
     count = tasks.filter(completed=False).count()
 
     context = {
@@ -28,10 +31,13 @@ def task_list(request):
 
 @login_required
 def task_detail(request, pk):
+    #get the specific task or return 404 if not found
     task = get_object_or_404(Task, pk=pk, user=request.user)
-    comments = task.comments.all()  # Fetch comments
+    #fetch all comments for the task
+    comments = task.comments.all()  
 
     if request.method == 'POST':
+        #handle comment submission
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
@@ -55,6 +61,7 @@ def task_detail(request, pk):
 def task_create(request):
 
     if request.method == 'POST':
+        #handle task creation
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
@@ -70,9 +77,11 @@ def task_create(request):
 
 @login_required
 def task_update(request, pk):
+    #get the object to update or return 404 if not found
     task = get_object_or_404(Task, pk=pk, user=request.user)
 
     if request.method == 'POST':
+        #handle task update
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             task = form.save(commit=False)
@@ -89,9 +98,11 @@ def task_update(request, pk):
 
 @login_required
 def task_delete(request, pk):
+    #get the task to delete or return 404 is not found
     task = get_object_or_404(Task, pk=pk, user=request.user)
 
     if request.method == 'POST':
+        #handle task deletion
         task.delete()
         messages.success(request, "You have deleted a task from your list.")
         return redirect('task_list')
@@ -101,6 +112,7 @@ def task_delete(request, pk):
 
 @login_required
 def toggle_task(request, task_pk):
+    #toggle task completion status
     task = get_object_or_404(Task, pk=task_pk, project__user=request.user)
     task.completed = not task.completed
     task.save()
@@ -108,13 +120,15 @@ def toggle_task(request, task_pk):
     return redirect('project_detail', pk=task.project.pk)
 
 
-# -----------------------COMMENTS-------------------------#
+# -----------------------COMMENT RELATED VIEWS -------------------------#
 
 @login_required
 def add_comment_to_task(request, pk):
+    #get the task to add a comment to
     task = get_object_or_404(Task, pk=pk)
 
     if request.method == 'POST':
+        #handle comment submission
         form = CommentForm(request.POST)
 
         if form.is_valid():
@@ -132,8 +146,10 @@ def add_comment_to_task(request, pk):
 
 @login_required
 def delete_comment(request, comment_pk):
+    #get the comment to delete or return a 404 if not found
     comment = get_object_or_404(Comment, pk=comment_pk)
 
+    #check if the user had permission to delete the comment
     if comment.user != request.user:
         return HttpResponseForbidden("You don't have permission to delete this comment.")
 
@@ -144,13 +160,12 @@ def delete_comment(request, comment_pk):
 
     return redirect('task_detail', pk=task_pk)
 
-
+#index view
 def index(request):
     return render(request, 'todo/index.html')
 
 
 # TOGGLE TASK FOR CHECKLIST
-
 @login_required
 @require_POST
 def toggle_task(request, task_id):
