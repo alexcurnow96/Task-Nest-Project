@@ -10,7 +10,8 @@ class Task(models.Model):
     id = models.AutoField(primary_key=True)
     #foreign key to link task to a user
     user = models.ForeignKey(get_user_model(
-    ), on_delete=models.CASCADE, null=True, blank=True, related_name='user_tasks')
+    ), on_delete=models.CASCADE, null=True,
+        blank=True, related_name='user_tasks')
     #title of the task, limited to 200 characters
     title = models.CharField(max_length=200)
     #description of the task - optional

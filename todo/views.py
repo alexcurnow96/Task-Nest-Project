@@ -34,7 +34,7 @@ def task_detail(request, pk):
     #get the specific task or return 404 if not found
     task = get_object_or_404(Task, pk=pk, user=request.user)
     #fetch all comments for the task
-    comments = task.comments.all()  
+    comments = task.comments.all()
 
     if request.method == 'POST':
         #handle comment submission
@@ -67,7 +67,9 @@ def task_create(request):
             task = form.save(commit=False)
             task.user = request.user
             task.save()
-            messages.add_message(request, messages.SUCCESS, "You have added a task to your list.")
+            messages.add_message(
+                request, messages.SUCCESS,
+                "You have added a task to your list.")
             return redirect('task_list')
     else:
         form = TaskForm()
@@ -141,7 +143,9 @@ def add_comment_to_task(request, pk):
         else:
             form = CommentForm()
 
-    return render(request, 'todo/task_detail.html', {'form': form, 'task': task})
+    return render(
+        request, 'todo/task_detail.html',
+        {'form': form, 'task': task})
 
 
 @login_required
@@ -151,7 +155,8 @@ def delete_comment(request, comment_pk):
 
     #check if the user had permission to delete the comment
     if comment.user != request.user:
-        return HttpResponseForbidden("You don't have permission to delete this comment.")
+        return HttpResponseForbidden(
+            "You don't have permission to delete this comment.")
 
     task_pk = comment.task.pk
 
@@ -159,6 +164,7 @@ def delete_comment(request, comment_pk):
     messages.success(request, "You have deleted a comment from your task.")
 
     return redirect('task_detail', pk=task_pk)
+
 
 #index view
 def index(request):

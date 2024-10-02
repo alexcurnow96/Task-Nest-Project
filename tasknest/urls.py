@@ -22,7 +22,8 @@ from todo import views
 urlpatterns = [
     #this path leads to the built-in django admin interface
     path('admin/', admin.site.urls),
-    #includes all urls defined in the todo app - empty string means urls will be at root of site
+    #includes all urls defined in the todo app 
+    #empty string means urls will be at root of site
     path('', include('todo.urls')),
     #includes all urls provided by allauth
     path('accounts/', include('allauth.urls')),
