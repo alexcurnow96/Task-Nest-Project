@@ -7,21 +7,24 @@
     <p class="task-description">Description: {{task.description}}</p>
 </div>
 
-<div class="main-content examples">
-    <h2>Comments</h2>
-    {% for comment in comments %}
-    <p>{{comment.user.username}}: {{ comment.text}} {{ comment.created_at}}</p>
-    <a href="{% url 'delete_comment' comment_pk=comment.pk %}"><i class="fa-solid fa-trash"></i></a>
-    {% empty %}
-    <p>No comments yet.</p>
-    {% endfor %}
+<div class="main_content">
+    <div class="comments">
+        <h2>Comments</h2>
+        {% for comment in comments %}
+        <p class="comment">{{comment.user.username}}: {{ comment.text}} <span>{{ comment.created_at}}</span></p>
+        <a href="{% url 'delete_comment' comment_pk=comment.pk %}"><i class="fa-solid fa-trash"></i></a>
+        {% empty %}
+        <p>No comments yet.</p>
+        {% endfor %}
+    </div>
 
-
-    <h3>Add a comment</h3>
-    <form method="post" action="{% url 'add_comment_to_task' task.pk %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="comments">
+        <h3>Add a comment</h3>
+        <form method="post" action="{% url 'add_comment_to_task' task.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

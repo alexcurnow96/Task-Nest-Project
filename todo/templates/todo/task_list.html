@@ -25,6 +25,8 @@
 
     <button class="btn btn-task"><a href="{% url 'task_create' %}">Add Task</a></button>
 
+    <p>Total tasks: {{ tasks.count }}</p>
+
     <table>
         <tr>
             <th>Item</th>
@@ -32,8 +34,6 @@
         </tr>
         {% for task in tasks %}
         <tr>
-            <input type="checkbox" class="task-checkbox" data-task-id="{{ task.id }}"
-                {% if task.completed %}checked{% endif %}>
             <td><span class="task-title {% if task.completed %}completed{% endif %}">{{task.title}}</span></td>
             <td><button class="btn btn-task-sm btn-view hoverable" data-popup="View your task and leave a comment"><a class="hoverable" data-popup="View your task and leave a comment" href="{% url 'task_detail' task.id %}">View</a></button>
             </td>
@@ -41,17 +41,15 @@
             </td>
             <td><button class="btn btn-task-sm btn-delete hoverable" data-popup="Delete your task from your list"><a class="hoverable" data-popup="Delete your task from your list" href="{% url 'task_delete' task.pk %}">Delete</a></button>
             </td>
-            <div id="popup" class="popup"></div>
         </tr>
-
         
         {% empty %}
 
         {% endfor %}
 
-        <p>Total tasks: {{ tasks.count }}</p>
-
     </table>
+
+    <div id="popup" class="popup"></div>
     <script src="{% static 'js/script.js' %}"></script>
 </div>
 
