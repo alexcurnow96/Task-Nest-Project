@@ -127,7 +127,6 @@ The purpose of this website is related to project management. I wanted to create
 All users journey through a website, and I needed to keep in mind the path users would take on mine. I wanted to keep the site as simple as possible for the user to navigate. This reduced the amount of pages I had, and reduced the amount of decisions for the user to make.
 
 The CRUD functionality was the main focus of the site. This included the ability to create tasks, read the tasks, update the tasks, and delete the tasks when completed.
-![User Flow Diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/users-model.png)
 
 ### User stories
 
@@ -188,6 +187,8 @@ Each user story had a MoSCoW prioritisation label attached to it. These labels w
 My MVP became a very simple task app rather than a full project management app. I felt that the Kanban board and team organisation aspects were better suited to a future iteration of my project. The site would fulfill the criteria for the project, and work well for users as just a simple to-do list task app.
 
 The biggest aspect of Agile I used in this project was my sprints. I took each day as a seperate sprint to achieve an aspect of my plan. This was only possible because of the daily scrum meetings led by my facilitator, Amy. The scheduled meetings at 9am and 4pm helped keep my sprints contained and the ability to talk about that days work kept me focused. I seldom ran into problems because of our daily meetings and this also helped boost my confidence going into the next days sprints.
+
+Github project board: https://github.com/users/alexcurnow96/projects/6
 
 # Features
 
