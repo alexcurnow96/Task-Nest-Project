@@ -219,6 +219,21 @@ The forms featured on Task Nest are the Sign Up, Log In, and Log Out pages, as w
 
 ![Form](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/testing/taskform.png)
 
+# Future Features
+
+- Ability to create projects 
+    - Due to my current learning scope, I was unable to implement project creation for this site. The main plan was to create a whole project management app where users could create task lists inside of projects. I was unable to complete this within the three week timeframe and so decided to stick to the task app functionality to reach a useable product. 
+- Kanban board functionality
+    - To implement an added feature to my project, I wanted to add a Kanban board to this app. This would make an agile environment for teams to manage their full projects. This would have required drag and drop functionality within JavaScript to work and I decided early on that this was outside of my MVP and my current ability. 
+- Admin button on home page
+    - I realised when testing my project that superusers would have to add /admin to the end of the URL to access the admin panel. I therefore should have implemented a small admin button on the site for those who could access this aspect of the site.
+- Social account login
+- PDF uploads in comments
+- Team collaboration on lists
+- Light/ dark mode for accessibility
+- Team roles and accessible areas for each role
+
+
 # Manual Testing
 
 ### HTML VALIDATION
@@ -337,3 +352,14 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - Amy Richardson's worksheets and files that were made to help us with this project.
 - Mark Briscoe's SME sessions
 - Martin and Roo MacArthur and John Rearden from the Coding Coach Sessions
+
+## Final Messages
+Thank you to my cohort for their support. Special thanks go to Chris and Helen for answering every message and team huddle whenever I needed them. We got each other through this!
+
+To Amy, you have held me together throughout these sixteen weeks. Thank you for everything you have done for us - especially your messages and calls when I have felt like this course was not for me! I hope the others you help on their journey appreciate you as much as you deserve.
+
+To Mark, I have said it before, and I will say it again - you are THE expert! Thank you for your wisdom and your ability to make us all feel so at ease, even if we are learning some crazy concepts! 
+
+To Martin, John, and Roo. I will never understand how you can so calmly fix all my problems! Thank you for fixing my database issues. I will now never touch my models again!
+
+And finally, to Code Institute... thank you for the opportunity to be taught by such awesome people. And for providing every thing I could need to believe in myself. 
