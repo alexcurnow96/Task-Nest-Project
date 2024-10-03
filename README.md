@@ -1,3 +1,14 @@
+# TASK NEST
+
+### Project description
+"Welcome to the place where productivity meets simplicity. Here you can, quite simply, "get it done, one task at a time". All tasks can be organised and achieved through projects, tasks and subtasks. Useable as a one person show or as a member of the team, we want to make your planning simple."
+
+Task Nest is a todo application, focused on offering a simple way to track your tasks. Users can, once authorised, add a task, view the task in on it's own page, edit the task form, and delete the task. Users can also add comments to each task from the task view page. 
+
+### User demographics
+
+
+
 # Planning
 
 ## User Interface Design (UI)
@@ -18,7 +29,7 @@ I then created an MVP from these ideas which included a simple to-do list with u
 
 I then began looking into competitors sites/apps to see what as already on the market and what appeared to be popular. 
 
-![Project Ideas](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/ideas-for-project.png)
+![Project Ideas](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/ideas-for-project.png)
 
 These included:
 - [A simple to do list for you and your team (any.do)](https://www.any.do/)
@@ -34,39 +45,39 @@ I chose these sites as inspiration for my board because I liked their simplicity
 ### Wireframes
 
 I began my wireframing journey by sketching with pen and paper. This was a very simple and early idea, made using a template. 
-![sketched wireframe](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
+![sketched wireframe](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/sketched-wireframe.png)
 
 I then began wireframing using my Miro board, using shapes and lines. These were able to give me a better idea of what I wanted the site to look like. In this iteration I included both desktop and mobile versions of each page, including all pages I could possibly make for this project. 
-![wireframe board on Miro](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/wireframes.png)
+![wireframe board on Miro](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/wireframes.png)
 
 I then tried using Figma.com to create more complex wireframes/prototypes. I made one prototype, but could not get on with this tool. 
-![Figma prototype](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/prototype.png)
+![Figma prototype](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/prototype.png)
 
 My finished wireframes were made using the Balsamiq application and featured every page I wanted to create in desktop and mobile view. This became my best planning tool when it came to development as I knew exactly what I wanted to create.
-![Desktop Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-homepage.png)
-![Phone Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Homepage.png)
-![Desktop Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-Project-Page.png)
-![Phone Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Projects-page.png)
-![Desktop Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Desktop-kanban-board.png)
-![Phone Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Phone-Kanban-board.png)
-![Profile wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/profile-page.png)
-![Sign in/up wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/Sign-in_Sign-up.png)
+![Desktop Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Desktop-homepage.png)
+![Phone Homepage](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Phone-Homepage.png)
+![Desktop Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Desktop-Project-Page.png)
+![Phone Projects](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Phone-Projects-page.png)
+![Desktop Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Desktop-kanban-board.png)
+![Phone Kanban](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Phone-Kanban-board.png)
+![Profile wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/profile-page.png)
+![Sign in/up wireframes](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/Sign-in_Sign-up.png)
 
 
 ### Brand Identity
 A big part of User Interface Design is the brand identity. This is how users recognise the site and build trust. I established this identity by first creating a brand name. I used the generative powers of AI by asking Perplexity.com to create names for a task management website. The responses from Perplexity were varied and most included alliterative names. Both of my previous projects with CI have featured alliterative names so I wanted to steer clear of that this time. The name Task Nest was featured and this became the name I started referring to my project as. 
-![Design Miro Board](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/design-ideas.png)
+![Design Miro Board](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/design-ideas.png)
 
 The brand colours are also a big part of the brand identity of Task Nest. My market research had led to me being pulled to a monochrome colour scheme. The different shades of one colour being used throughout the site made it look more professional for the use of development teams and individuals. 
 
 Upon looking into brand colours, I found that blue is a "harmonious colour that is stress relieving and does not disturb the focus of the brain, resulting in more efficient work being delivered." (https://www.haiken.com/insights/the-top-colours-for-your-office-to-increase-productivity) For this reason I chose an all blue colour scheme. 
-"[Colour Scheme](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/colour-scheme.jpeg)
+"[Colour Scheme](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/colour-scheme.jpeg)
 
 I then used Adobe Firefly to create a logo for the website that would feature on the nav bar. This would provide an added layer of trust to the site and become a recognisable part of the brand. I used the checkpoints from the to-do list inside of a birds nest to make it clear that this logo belongs to the brand. 
-![Logo](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/logo.jpg)
+![Logo](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/logo.jpg)
 
 The typography came at the end of the design process as I wanted it to follow the professionalism of the rest of the branding design. I started by looking at www.fontpair.co, and choosing a series of font pairings that I thought could work for Task Nest. When looking at the final choices, I noticed that they all featured "Karla" as a heading font. This became the natural heading font, and the pairing of "Inconsolata" went well for the paragraph elements. These fonts were then procured from Google Fonts (fonts.google.com).
-![Font Pairing](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
+![Font Pairing](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/font-pairing.png)
 
 ### Interaction Design 
 The interactivity of a website is also incredibly important. This includes the basic interaction, use of buttons, drag and drop, user creation, but also more complex interactions within a site. For this reason, I researched the 10 Usability Heuristics and how to assess where a design is falling short and where it is excelling. This also looks into what aspects of design can be sacrificed and what needs to be prioritised. 
@@ -85,10 +96,10 @@ These would all be planned for and tested at the end of my project to ensure the
 
 ### Database Planning
 I began my database design by sketching out my models and an entity relationship diagram. Because of my previous experience in SQL, I began by following the principles of MySQL and used integer, varchar, and set. This helped me understand what I was going to create in the backend of this site. 
-![Sketched ERD](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/ideas-for-project.png)
+![Sketched ERD](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/sketched-erd.png)
 
 I then began using LucidChart (www.lucidchart.com) to create an actual ERD to be used in my project. This included Users, Tasks and Subtasks with primary keys and foreign keys. This allowed me to create simple models with simple connections. 
-![Lucidchart diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/)
+![Lucidchart diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/tasknest.png)
 
 I then discovered that you could import the user model from Django AllAuth, and decided to use that functionality for the Users model.
 
@@ -102,7 +113,7 @@ The purpose of this website is related to project management. I wanted to create
 All users journey through a website, and I needed to keep in mind the path users would take on mine. I wanted to keep the site as simple as possible for the user to navigate. This reduced the amount of pages I had, and reduced the amount of decisions for the user to make. 
 
 The CRUD functionality was the main focus of the site. This included the ability to create tasks, read the tasks, update the tasks, and delete the tasks when completed. 
-![User Flow Diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/users-model.png)
+![User Flow Diagram](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/users-model.png)
 
 ### User stories
 
@@ -142,8 +153,8 @@ The CRUD functionality was the main focus of the site. This included the ability
 |As an admin I want to see how many users I have and what projects they have so that I can organise my team. | Won't Have |
 |As a team leader I want to see what my colleagues are working on within their projects so that I can organise my team. | Won't Have|
 
-![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/userstories1.png)
-![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/userstories2.png)
+![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/userstories1.png)
+![Miro Board Screenshot with User Stories](https://github.com/alexcurnow96/portfolio-project/blob/main/documentation/planning/userstories2.png)
 
 
 ### Agile
