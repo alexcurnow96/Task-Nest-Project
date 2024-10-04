@@ -232,9 +232,31 @@ The forms featured on Task Nest are the Sign Up, Log In, and Log Out pages, as w
 - Team collaboration on lists
 - Light/ dark mode for accessibility
 - Team roles and accessible areas for each role
+- Refinement of hoverable popups
+    - Popups should just appear on the first task on each list, or appear once each time the user logs in.
 
 
 # Manual Testing
+
+| Feature                    | Tested?  | User Input Required | User Feedback Provided     | Pass/Fail | Fix |
+|----------------------------|----------|---------------------|----------------------------|-----------|-----|
+| Navbar Logo and Icons | Yes | Click | Logo and name takes user to 'Home' page, icons take user to intended location. | Pass | - |
+| Navbar color text  | Yes | Hover | Colour changes upon hover | Pass | - |
+| Sign Up Page               | Yes      | Username/ Email (optional)/ Password | Empty fields deliver prompt to user, email field demands '@' symbols, password requirements need to be met | Pass | - |
+| Sign In | Yes | Username and Password | Username//Password must be exactly as registered originally in either lowercase/uppercase or mixture | Pass | - |
+| Home Page Buttons| Yes | Click | First button goes to /tasks and second to Sign Up. If user is not logged in, the first button takes them to the Sign In page. | Pass | - |
+| Social Media Buttons | Yes | Click | Each icon takes you to the relevant social media site. | Pass | - |
+| Add Task (Registered User) | Yes | Title and (optional) Description field | Task form is displayed. Title, description, and completed checkbox | Pass | - |
+| View Task (Registered User) | Yes | Click on view button | Task view page with task title, description, and comment form. | Pass | - |
+| Edit Task (Registered User) | Yes | Click on edit button | Task form is displayed to edit the information on the server. Title, description, and completed checkbox | Pass | - |
+| Delete Task (Registered User) | Yes | Click on delete button | Confirm delete page is displayed with the option for the user to return to the task list or delete the task. | Pass | - |
+| Instruction popups | Yes | Hover on button | Hover over button on task list page to view instructions. | Pass | - |
+| Add Comment | Yes | Fill in text field | 'Please fill in this field' if no text is inputted into text field. | Pass | - |
+| Delete Comment | Yes | Press delete button | Comment gets deleted, no other feedback provided. | Pass | Add a toast message |
+
+
+
+
 
 ### HTML VALIDATION
 
@@ -354,7 +376,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - Martin and Roo MacArthur and John Rearden from the Coding Coach Sessions
 
 ## Final Messages
-Thank you to my cohort for their support. Special thanks go to Chris and Helen for answering every message and team huddle whenever I needed them. We got each other through this!
+Thank you to my cohort for their support, but most importantly the laughs. Special thanks go to Chris and Helen for answering every message and team huddle whenever I needed them. We got each other through this!
 
 To Amy, you have held me together throughout these sixteen weeks. Thank you for everything you have done for us - especially your messages and calls when I have felt like this course was not for me! I hope the others you help on their journey appreciate you as much as you deserve.
 
