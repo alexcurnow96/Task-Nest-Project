@@ -235,6 +235,12 @@ The forms featured on Task Nest are the Sign Up, Log In, and Log Out pages, as w
 - Refinement of hoverable popups
     - Popups should just appear on the first task on each list, or appear once each time the user logs in.
 
+# Bugs
+Due to this being my first django/database project, I had a range of small bugs and teething issues that needed to be worked through in development.
+
+These included fixing links, url locators and tweaking validation issues.
+
+My main issues came from changing my models and messing up my database. When these errors occured I used our coding coach sessions to remove the old database and added a new one. Then all migrations went through perfectly.
 
 # Manual Testing
 
@@ -253,9 +259,6 @@ The forms featured on Task Nest are the Sign Up, Log In, and Log Out pages, as w
 | Instruction popups | Yes | Hover on button | Hover over button on task list page to view instructions. | Pass | - |
 | Add Comment | Yes | Fill in text field | 'Please fill in this field' if no text is inputted into text field. | Pass | - |
 | Delete Comment | Yes | Press delete button | Comment gets deleted, no other feedback provided. | Pass | Add a toast message |
-
-
-
 
 
 ### HTML VALIDATION
